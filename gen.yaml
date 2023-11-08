@@ -5,9 +5,15 @@ management:
   speakeasyVersion: 1.116.0
   generationVersion: 2.185.0
 generation:
-  comments: {}
+  comments:
+    disableComments: false
+    omitDescriptionIfSummaryPresent: false
+  baseServerURL: ""
+  flattenGlobalSecurity: true
+  repoURL: https://github.com/ding-live/ding-typescript.git
   sdkClassName: Ding
-  repoURL: https://github.com/ding-live/ding-golang.git
+  singleTagPerOp: false
+  tagNamespacingDisabled: false
 features:
   go:
     core: 3.1.2
