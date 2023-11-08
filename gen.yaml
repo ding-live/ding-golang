@@ -1,0 +1,17 @@
+configVersion: 1.0.0
+generation:
+  comments:
+    disableComments: false
+    omitDescriptionIfSummaryPresent: false
+  baseServerURL: ""
+  flattenGlobalSecurity: true
+  repoURL: https://github.com/ding-live/ding-python.git
+  sdkClassName: Ding
+  singleTagPerOp: false
+  tagNamespacingDisabled: false
+go:
+  version: 0.0.1
+  clientServerStatusCodesAsErrors: true
+  flattenGlobalSecurity: true
+  maxMethodParams: 4
+  packageName: github.com/ding-live/ding-golang
