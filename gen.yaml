@@ -1,19 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: b8a9cbd146aa1183c110d3a9672c46b4
+  docChecksum: a80ffb060b1b607a61badc02c80a52bd
   docVersion: 1.0.0
-  speakeasyVersion: 1.116.0
-  generationVersion: 2.185.0
+  speakeasyVersion: 1.117.0
+  generationVersion: 2.186.4
 generation:
-  comments:
-    disableComments: false
-    omitDescriptionIfSummaryPresent: false
-  baseServerURL: ""
-  flattenGlobalSecurity: true
-  repoURL: https://github.com/ding-live/ding-csharp.git
+  comments: {}
   sdkClassName: Ding
-  singleTagPerOp: false
-  tagNamespacingDisabled: false
+  repoURL: https://github.com/ding-live/ding-golang.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   go:
     core: 3.1.2
@@ -21,9 +17,10 @@ features:
     flattening: 2.81.1
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.0
+    nameOverrides: 2.81.1
     serverIDs: 2.81.1
 go:
-  version: 0.1.0
+  version: 0.1.1
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:

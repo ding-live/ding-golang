@@ -1,7 +1,8 @@
 <!-- Start SDK Example Usage -->
+### Send a code
 
-## Send a code
 Send an OTP code to a user's phone number.
+
 
 ```go
 package main
@@ -19,8 +20,8 @@ func main() {
 	)
 
 	ctx := context.Background()
-	res, err := s.Otp.CreateAutentication(ctx, &components.CreateAuthenticationRequest{
-		CustomerUUID: "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+	res, err := s.Otp.Send(ctx, &components.CreateAuthenticationRequest{
+		CustomerUUID: "82779012-9667-4917-8532-b94017ce3f0f",
 		PhoneNumber:  "+1234567890",
 	})
 	if err != nil {
@@ -34,9 +35,10 @@ func main() {
 
 ```
 
+### Check a code
 
-## Check a code
 Check that a code entered by a user is valid.
+
 
 ```go
 package main
@@ -70,9 +72,10 @@ func main() {
 
 ```
 
+### Retry an authentication
 
-## Retry an authentication
 Retry an authentication if a user has not received the code.
+
 
 ```go
 package main
