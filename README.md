@@ -34,8 +34,8 @@ func main() {
 	)
 
 	ctx := context.Background()
-	res, err := s.Otp.Send(ctx, &components.CreateAuthenticationRequest{
-		CustomerUUID: "82779012-9667-4917-8532-b94017ce3f0f",
+	res, err := s.Otp.CreateAutentication(ctx, &components.CreateAuthenticationRequest{
+		CustomerUUID: "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
 		PhoneNumber:  "+1234567890",
 	})
 	if err != nil {
@@ -130,8 +130,8 @@ func main() {
 ### [Otp](docs/sdks/otp/README.md)
 
 * [Check](docs/sdks/otp/README.md#check) - Check an authentication code
+* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
 * [Retry](docs/sdks/otp/README.md#retry) - Retry an authentication
-* [Send](docs/sdks/otp/README.md#send) - Create an authentication
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
