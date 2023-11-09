@@ -8,8 +8,8 @@ import (
 )
 
 type LookupRequest struct {
-	CustomerUUID  string                    `header:"style=simple,explode=false,name=customer-uuid"`
-	LookupRequest *components.LookupRequest `request:"mediaType=application/json"`
+	CustomerUUID string `header:"style=simple,explode=false,name=customer-uuid"`
+	PhoneNumber  string `pathParam:"style=simple,explode=false,name=phone_number"`
 }
 
 func (o *LookupRequest) GetCustomerUUID() string {
@@ -19,11 +19,11 @@ func (o *LookupRequest) GetCustomerUUID() string {
 	return o.CustomerUUID
 }
 
-func (o *LookupRequest) GetLookupRequest() *components.LookupRequest {
+func (o *LookupRequest) GetPhoneNumber() string {
 	if o == nil {
-		return nil
+		return ""
 	}
-	return o.LookupRequest
+	return o.PhoneNumber
 }
 
 type LookupResponse struct {

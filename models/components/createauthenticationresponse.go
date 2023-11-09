@@ -9,7 +9,10 @@ import (
 	"time"
 )
 
-// Status - The status of the authentication.
+// Status - The status of the authentication. Possible values are:
+//   - `pending` - The OTP code is being sent.
+//   - `rate_limited` - This user is rate-limited and cannot receive another code.
+//   - `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.
 type Status string
 
 const (
@@ -47,7 +50,11 @@ type CreateAuthenticationResponse struct {
 	CreatedAt          *time.Time `json:"created_at,omitempty"`
 	// The time at which the authentication expires and can no longer be checked or retried.
 	ExpiresAt *time.Time `json:"expires_at,omitempty"`
-	// The status of the authentication.
+	// The status of the authentication. Possible values are:
+	//   * `pending` - The OTP code is being sent.
+	//   * `rate_limited` - This user is rate-limited and cannot receive another code.
+	//   * `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.
+	//
 	Status *Status `json:"status,omitempty"`
 }
 

@@ -12,7 +12,6 @@ import (
 	"github.com/ding-live/ding-golang/models/sdkerrors"
 	"io"
 	"net/http"
-	"strings"
 )
 
 // Lookup - Retrieve up-to-date metadata about a specific phone number
@@ -26,29 +25,25 @@ func newLookup(sdkConfig sdkConfiguration) *Lookup {
 	}
 }
 
-// Lookup a phone number
-func (s *Lookup) Lookup(ctx context.Context, customerUUID string, lookupRequest *components.LookupRequest) (*operations.LookupResponse, error) {
+// Lookup a number
+func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber string) (*operations.LookupResponse, error) {
 	request := operations.LookupRequest{
-		CustomerUUID:  customerUUID,
-		LookupRequest: lookupRequest,
+		CustomerUUID: customerUUID,
+		PhoneNumber:  phoneNumber,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
-	url := strings.TrimSuffix(baseURL, "/") + "/lookup"
-
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "LookupRequest", "json", `request:"mediaType=application/json"`)
+	url, err := utils.GenerateURL(ctx, baseURL, "/lookup/{phone_number}", request, nil)
 	if err != nil {
-		return nil, fmt.Errorf("error serializing request body: %w", err)
+		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "POST", url, bodyReader)
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
-
-	req.Header.Set("Content-Type", reqContentType)
 
 	utils.PopulateHeaders(ctx, req, request)
 

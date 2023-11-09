@@ -31,7 +31,6 @@ internal/utils/utils.go
 /models/components/retryauthenticationresponse.go
 /models/components/retryauthenticationrequest.go
 /models/components/lookupresponse.go
-/models/components/lookuprequest.go
 /models/components/security.go
 /models/sdkerrors/errorresponse.go
 USAGE.md
@@ -52,7 +51,6 @@ docs/models/components/retryauthenticationresponse.md
 docs/models/components/retryauthenticationrequest.md
 docs/models/components/linetype.md
 docs/models/components/lookupresponse.md
-docs/models/components/lookuprequest.md
 docs/models/components/security.md
 docs/models/sdkerrors/code.md
 docs/models/sdkerrors/errorresponse.md

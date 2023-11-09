@@ -7,7 +7,13 @@ import (
 	"fmt"
 )
 
-// CreateCheckResponseStatus - A status representing the result of the check.
+// CreateCheckResponseStatus - The status of the check. Possible values are:
+//   - `valid` - The code is valid.
+//   - `invalid` - The code is invalid.
+//   - `without_attempt` - No attempt was sent yet so we cannot perform a check.
+//   - `rate_limited` - The authentication was rate limited and cannot be checked.
+//   - `already_validated` - The authentication has already been validated.
+//   - `expired_auth` - The authentication has expired and cannot be checked.
 type CreateCheckResponseStatus string
 
 const (
@@ -50,7 +56,14 @@ func (e *CreateCheckResponseStatus) UnmarshalJSON(data []byte) error {
 type CreateCheckResponse struct {
 	// The UUID of the corresponding authentication.
 	AuthenticationUUID *string `json:"authentication_uuid,omitempty"`
-	// A status representing the result of the check.
+	// The status of the check. Possible values are:
+	//   * `valid` - The code is valid.
+	//   * `invalid` - The code is invalid.
+	//   * `without_attempt` - No attempt was sent yet so we cannot perform a check.
+	//   * `rate_limited` - The authentication was rate limited and cannot be checked.
+	//   * `already_validated` - The authentication has already been validated.
+	//   * `expired_auth` - The authentication has expired and cannot be checked.
+	//
 	Status *CreateCheckResponseStatus `json:"status,omitempty"`
 }
 

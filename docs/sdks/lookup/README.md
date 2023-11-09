@@ -7,11 +7,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [Lookup](#lookup) - Lookup a phone number
+* [Lookup](#lookup) - Lookup a number
 
 ## Lookup
 
-Lookup a phone number
+Lookup a number
 
 ### Example Usage
 
@@ -33,12 +33,10 @@ func main() {
 
     var customerUUID string = "6e93aa15-9177-4d09-8395-b69ce50db1c8"
 
-    lookupRequest := &components.LookupRequest{
-        PhoneNumber: dinggolang.String("+1234567890"),
-    }
+    var phoneNumber string = "string"
 
     ctx := context.Background()
-    res, err := s.Lookup.Lookup(ctx, customerUUID, lookupRequest)
+    res, err := s.Lookup.Lookup(ctx, customerUUID, phoneNumber)
     if err != nil {
         log.Fatal(err)
     }
@@ -51,11 +49,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `ctx`                                                                 | [context.Context](https://pkg.go.dev/context#Context)                 | :heavy_check_mark:                                                    | The context to use for the request.                                   |
-| `customerUUID`                                                        | *string*                                                              | :heavy_check_mark:                                                    | N/A                                                                   |
-| `lookupRequest`                                                       | [*components.LookupRequest](../../models/components/lookuprequest.md) | :heavy_minus_sign:                                                    | N/A                                                                   |
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
+| `customerUUID`                                        | *string*                                              | :heavy_check_mark:                                    | N/A                                                   |
+| `phoneNumber`                                         | *string*                                              | :heavy_check_mark:                                    | N/A                                                   |
 
 
 ### Response

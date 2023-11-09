@@ -86,9 +86,9 @@ func main() {
 
 ```
 
-### Retry an authentication
+### Perform a retry
 
-Retry an authentication if a user has not received the code.
+Perform a retry if a user has not received the code.
 
 
 ```go
@@ -129,13 +129,13 @@ func main() {
 
 ### [Otp](docs/sdks/otp/README.md)
 
-* [Check](docs/sdks/otp/README.md#check) - Check an authentication code
-* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
-* [Retry](docs/sdks/otp/README.md#retry) - Retry an authentication
+* [Check](docs/sdks/otp/README.md#check) - Check a code
+* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Send a code
+* [Retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
-* [Lookup](docs/sdks/lookup/README.md#lookup) - Lookup a phone number
+* [Lookup](docs/sdks/lookup/README.md#lookup) - Lookup a number
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->

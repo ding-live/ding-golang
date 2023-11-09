@@ -26,7 +26,7 @@ func newOtp(sdkConfig sdkConfiguration) *Otp {
 	}
 }
 
-// Check an authentication code
+// Check a code
 func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest) (*operations.CheckResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/check"
@@ -102,7 +102,7 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest)
 	return res, nil
 }
 
-// CreateAutentication - Create an authentication
+// CreateAutentication - Send a code
 func (s *Otp) CreateAutentication(ctx context.Context, request *components.CreateAuthenticationRequest) (*operations.CreateAutenticationResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/authentication"
@@ -178,7 +178,7 @@ func (s *Otp) CreateAutentication(ctx context.Context, request *components.Creat
 	return res, nil
 }
 
-// Retry an authentication
+// Retry - Perform a retry
 func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthenticationRequest) (*operations.RetryResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/retry"
