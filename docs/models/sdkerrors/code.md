@@ -4,16 +4,16 @@ A machine-readable code that describes the error. Possible values are:
   * `invalid_phone_number` - This is not a valid E.164 number.
   * `internal_server_error` - An internal server error occurred.
   * `bad_request` - The request was malformed.
-  * `account_invalid` - The customer UUID you provided is invalid.
+  * `account_invalid` - The provided customer UUID is invalid.
   * `negative_balance` - You have a negative balance.
   * `invalid_line` - Ding does not support this type of phone number.
   * `unsupported_region` - Ding does not support this region yet.
-  * `invalid_auth_uuid` - The authentication UUID you provided is invalid.
-  * `blocked_number` - The phone number you provided is in the blocklist.
-  * `invalid_app_version` - The app version you provided is invalid.
-  * `invalid_os_version` - The OS version you provided is invalid.
-  * `invalid_device_model` - The device model you provided is invalid.
-  * `invalid_device_id` - The device ID you provided is invalid.
+  * `invalid_auth_uuid` - The provided authentication UUID is invalid.
+  * `blocked_number` - The phone number is in the blocklist.
+  * `invalid_app_version` - The provided application version is invalid.
+  * `invalid_os_version` - The provided OS version is invalid.
+  * `invalid_device_model` - The provided device model is invalid.
+  * `invalid_device_id` - The provided device ID is invalid.
 
 
 

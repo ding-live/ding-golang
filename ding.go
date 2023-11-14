@@ -70,7 +70,7 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 	return ServerList[c.Server], nil
 }
 
-// Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers
+// Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
 type Ding struct {
 	// Send OTP codes to your users using their phone numbers.
 	Otp *Otp
@@ -146,9 +146,9 @@ func New(opts ...SDKOption) *Ding {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.1.4",
-			GenVersion:        "2.187.7",
-			UserAgent:         "speakeasy-sdk/go 0.1.4 2.187.7 1.0.0 github.com/ding-live/ding-golang",
+			SDKVersion:        "0.1.5",
+			GenVersion:        "2.188.3",
+			UserAgent:         "speakeasy-sdk/go 0.1.5 2.188.3 1.0.0 github.com/ding-live/ding-golang",
 		},
 	}
 	for _, opt := range opts {

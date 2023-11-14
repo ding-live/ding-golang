@@ -7,11 +7,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [Lookup](#lookup) - Lookup a number
+* [Lookup](#lookup) - Perform a phone number lookup
 
 ## Lookup
 
-Lookup a number
+Perform a phone number lookup
 
 ### Example Usage
 

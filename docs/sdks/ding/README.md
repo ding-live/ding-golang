@@ -3,7 +3,7 @@
 
 ## Overview
 
-Ding: The OTP API allows you to send authentication codes to your users using their phone numbers
+Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
 
 ### Available Operations
 

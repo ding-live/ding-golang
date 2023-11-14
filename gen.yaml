@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 591d96aa48562d90166a6ad684e16504
+  docChecksum: 23b3c6cfafa85126477a7c1c67a9cf5c
   docVersion: 1.0.0
-  speakeasyVersion: 1.118.3
-  generationVersion: 2.187.7
+  speakeasyVersion: 1.119.1
+  generationVersion: 2.188.3
 generation:
   comments: {}
   sdkClassName: Ding
@@ -19,7 +19,7 @@ features:
     globalServerURLs: 2.82.0
     serverIDs: 2.81.1
 go:
-  version: 0.1.4
+  version: 0.1.5
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:

@@ -41,13 +41,13 @@ func (e *DeviceType) UnmarshalJSON(data []byte) error {
 type CreateAuthenticationRequest struct {
 	// The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
 	AppRealm *string `json:"app_realm,omitempty"`
-	// The version of your app.
+	// The version of your application.
 	AppVersion *string `json:"app_version,omitempty"`
 	// A webhook URL to which delivery statuses will be sent.
 	CallbackURL *string `json:"callback_url,omitempty"`
 	// Your customer UUID, which can be found in the API settings in the dashboard.
 	CustomerUUID string `json:"customer_uuid"`
-	// Unique identifier for the user's device. For Android, this corresponds to the ANDROID_ID and for iOS, this corresponds to the identifierForVendor.
+	// Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
 	DeviceID *string `json:"device_id,omitempty"`
 	// The model of the user's device.
 	DeviceModel *string `json:"device_model,omitempty"`
@@ -57,7 +57,7 @@ type CreateAuthenticationRequest struct {
 	IP *string `json:"ip,omitempty"`
 	// Whether the user is a returning user on your app.
 	IsReturningUser *bool `json:"is_returning_user,omitempty"`
-	// The version of the user's operating system.
+	// The version of the user's device operating system.
 	OsVersion *string `json:"os_version,omitempty"`
 	// An E.164 formatted phone number to send the OTP to.
 	PhoneNumber string `json:"phone_number"`

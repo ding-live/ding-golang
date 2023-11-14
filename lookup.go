@@ -25,7 +25,7 @@ func newLookup(sdkConfig sdkConfiguration) *Lookup {
 	}
 }
 
-// Lookup a number
+// Lookup - Perform a phone number lookup
 func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber string) (*operations.LookupResponse, error) {
 	request := operations.LookupRequest{
 		CustomerUUID: customerUUID,
