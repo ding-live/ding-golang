@@ -21,10 +21,10 @@ Check a code
 package main
 
 import(
+	"github.com/ding-live/ding-golang/models/components"
+	dinggolang "github.com/ding-live/ding-golang"
 	"context"
 	"log"
-	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 )
 
 func main() {
@@ -74,10 +74,10 @@ Send a code
 package main
 
 import(
+	"github.com/ding-live/ding-golang/models/components"
+	dinggolang "github.com/ding-live/ding-golang"
 	"context"
 	"log"
-	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 )
 
 func main() {
@@ -126,10 +126,10 @@ Perform a retry
 package main
 
 import(
+	"github.com/ding-live/ding-golang/models/components"
+	dinggolang "github.com/ding-live/ding-golang"
 	"context"
 	"log"
-	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 )
 
 func main() {

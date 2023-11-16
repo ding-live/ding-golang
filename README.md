@@ -159,8 +159,10 @@ package main
 
 import (
 	"context"
+	"errors"
 	dinggolang "github.com/ding-live/ding-golang"
 	"github.com/ding-live/ding-golang/models/components"
+	"github.com/ding-live/ding-golang/models/sdkerrors"
 	"log"
 )
 

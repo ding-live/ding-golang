@@ -19,10 +19,10 @@ Perform a phone number lookup
 package main
 
 import(
+	"github.com/ding-live/ding-golang/models/components"
+	dinggolang "github.com/ding-live/ding-golang"
 	"context"
 	"log"
-	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 )
 
 func main() {
