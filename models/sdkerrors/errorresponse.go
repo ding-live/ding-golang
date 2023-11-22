@@ -90,6 +90,7 @@ func (e *Code) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// ErrorResponse - Bad Request
 type ErrorResponse struct {
 	// A machine-readable code that describes the error. Possible values are:
 	//   * `invalid_phone_number` - This is not a valid E.164 number.
