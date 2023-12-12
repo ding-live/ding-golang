@@ -33,7 +33,6 @@ internal/utils/utils.go
 /models/components/lookupresponse.go
 /models/components/security.go
 /models/sdkerrors/errorresponse.go
-USAGE.md
 docs/models/operations/checkresponse.md
 docs/models/operations/createautenticationresponse.md
 docs/models/operations/retryresponse.md
@@ -57,4 +56,5 @@ docs/models/sdkerrors/errorresponse.md
 docs/sdks/ding/README.md
 docs/sdks/otp/README.md
 docs/sdks/lookup/README.md
+USAGE.md
 .gitattributes
