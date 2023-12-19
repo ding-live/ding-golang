@@ -62,4 +62,4 @@ func main() {
 | Error Object            | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
 | sdkerrors.ErrorResponse | 400                     | application/json        |
-| sdkerrors.SDKError      | 400-600                 | */*                     |
+| sdkerrors.SDKError      | 4xx-5xx                 | */*                     |
