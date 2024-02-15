@@ -33,7 +33,7 @@ func main() {
 
     var customerUUID string = "6e93aa15-9177-4d09-8395-b69ce50db1c8"
 
-    var phoneNumber string = "string"
+    var phoneNumber string = "<value>"
 
     ctx := context.Background()
     res, err := s.Lookup.Lookup(ctx, customerUUID, phoneNumber)

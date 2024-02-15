@@ -5,6 +5,7 @@ package dinggolang
 import (
 	"context"
 	"fmt"
+	"github.com/ding-live/ding-golang/internal/hooks"
 	"github.com/ding-live/ding-golang/internal/utils"
 	"github.com/ding-live/ding-golang/models/components"
 	"net/http"
@@ -56,6 +57,7 @@ type sdkConfiguration struct {
 	GenVersion        string
 	UserAgent         string
 	RetryConfig       *utils.RetryConfig
+	Hooks             *hooks.Hooks
 }
 
 func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
@@ -154,14 +156,17 @@ func New(opts ...SDKOption) *Ding {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.3.0",
-			GenVersion:        "2.250.2",
-			UserAgent:         "speakeasy-sdk/go 0.3.0 2.250.2 1.0.0 github.com/ding-live/ding-golang",
+			SDKVersion:        "0.4.0",
+			GenVersion:        "2.258.0",
+			UserAgent:         "speakeasy-sdk/go 0.4.0 2.258.0 1.0.0 github.com/ding-live/ding-golang",
+			Hooks:             hooks.New(),
 		},
 	}
 	for _, opt := range opts {
 		opt(sdk)
 	}
+
+	sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.ClientInit(sdk.sdkConfiguration.DefaultClient)
 
 	// Use WithClient to override the default client if you would like to customize the timeout
 	if sdk.sdkConfiguration.DefaultClient == nil {
