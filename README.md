@@ -278,13 +278,13 @@ func main() {
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Name
+### Select Server by Index
 
-You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `production` | `https://api.ding.live/v1` | None |
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.ding.live/v1` | None |
 
 #### Example
 
@@ -300,7 +300,7 @@ import (
 
 func main() {
 	s := dinggolang.New(
-		dinggolang.WithServer("production"),
+		dinggolang.WithServerIndex(0),
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 

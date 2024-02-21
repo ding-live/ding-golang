@@ -7,7 +7,7 @@ type CreateCheckRequest struct {
 	AuthenticationUUID string `json:"authentication_uuid"`
 	// The code that the user entered.
 	CheckCode string `json:"check_code"`
-	// Your customer UUID, which can be found in the API settings in the dashboard.
+	// Your customer UUID, which can be found in the API settings in the Dashboard.
 	CustomerUUID string `json:"customer_uuid"`
 }
 

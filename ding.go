@@ -12,14 +12,10 @@ import (
 	"time"
 )
 
-const (
-	// The production Ding API server
-	ServerProduction string = "production"
-)
-
 // ServerList contains the list of servers available to the SDK
-var ServerList = map[string]string{
-	ServerProduction: "https://api.ding.live/v1",
+var ServerList = []string{
+	// The production Ding API server
+	"https://api.ding.live/v1",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -50,7 +46,7 @@ type sdkConfiguration struct {
 	SecurityClient    HTTPClient
 	Security          func(context.Context) (interface{}, error)
 	ServerURL         string
-	Server            string
+	ServerIndex       int
 	Language          string
 	OpenAPIDocVersion string
 	SDKVersion        string
@@ -65,11 +61,7 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 		return c.ServerURL, nil
 	}
 
-	if c.Server == "" {
-		c.Server = "production"
-	}
-
-	return ServerList[c.Server], nil
+	return ServerList[c.ServerIndex], nil
 }
 
 // Ding - Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
@@ -102,15 +94,14 @@ func WithTemplatedServerURL(serverURL string, params map[string]string) SDKOptio
 	}
 }
 
-// WithServer allows the overriding of the default server by name
-func WithServer(server string) SDKOption {
+// WithServerIndex allows the overriding of the default server by index
+func WithServerIndex(serverIndex int) SDKOption {
 	return func(sdk *Ding) {
-		_, ok := ServerList[server]
-		if !ok {
-			panic(fmt.Errorf("server %s not found", server))
+		if serverIndex < 0 || serverIndex >= len(ServerList) {
+			panic(fmt.Errorf("server index %d out of range", serverIndex))
 		}
 
-		sdk.sdkConfiguration.Server = server
+		sdk.sdkConfiguration.ServerIndex = serverIndex
 	}
 }
 
@@ -156,9 +147,9 @@ func New(opts ...SDKOption) *Ding {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.4.1",
+			SDKVersion:        "0.5.0",
 			GenVersion:        "2.263.3",
-			UserAgent:         "speakeasy-sdk/go 0.4.1 2.263.3 1.0.0 github.com/ding-live/ding-golang",
+			UserAgent:         "speakeasy-sdk/go 0.5.0 2.263.3 1.0.0 github.com/ding-live/ding-golang",
 			Hooks:             hooks.New(),
 		},
 	}
