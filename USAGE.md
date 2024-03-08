@@ -27,7 +27,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if res.CreateAuthenticationResponse != nil {
 		// handle response
 	}
@@ -64,7 +63,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if res.CreateCheckResponse != nil {
 		// handle response
 	}
@@ -100,7 +98,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if res.RetryAuthenticationResponse != nil {
 		// handle response
 	}
