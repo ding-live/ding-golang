@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
-  docChecksum: 01bd42610039f89b431afa7eb1a3c56c
+  docChecksum: a2a29dc8a8df536c8b2553db26987fad
   docVersion: 1.0.0
-  speakeasyVersion: 1.204.1
+  speakeasyVersion: 1.205.2
   generationVersion: 2.279.1
-  releaseVersion: 0.6.0
-  configChecksum: 5ae84ad2e247ccf2b3234dc15a143950
+  releaseVersion: 0.6.1
+  configChecksum: 47b18cf30ef504e8deef24466586e9e7
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
@@ -41,7 +41,7 @@ generatedFiles:
   - internal/utils/security.go
   - internal/utils/utils.go
   - /models/operations/check.go
-  - /models/operations/createautentication.go
+  - /models/operations/createauthentication.go
   - /models/operations/retry.go
   - /models/operations/lookup.go
   - /models/components/createcheckresponse.go
@@ -54,7 +54,7 @@ generatedFiles:
   - /models/components/security.go
   - /models/sdkerrors/errorresponse.go
   - docs/models/operations/checkresponse.md
-  - docs/models/operations/createautenticationresponse.md
+  - docs/models/operations/createauthenticationresponse.md
   - docs/models/operations/retryresponse.md
   - docs/models/operations/lookuprequest.md
   - docs/models/operations/lookupresponse.md

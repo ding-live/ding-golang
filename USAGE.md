@@ -20,8 +20,8 @@ func main() {
 	)
 
 	ctx := context.Background()
-	res, err := s.Otp.CreateAutentication(ctx, &components.CreateAuthenticationRequest{
-		CustomerUUID: "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+	res, err := s.Otp.CreateAuthentication(ctx, &components.CreateAuthenticationRequest{
+		CustomerUUID: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
 		PhoneNumber:  "+1234567890",
 	})
 	if err != nil {

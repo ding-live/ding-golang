@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-type CreateAutenticationResponse struct {
+type CreateAuthenticationResponse struct {
 	// HTTP response content type for this operation
 	ContentType string
 	// OK
@@ -18,28 +18,28 @@ type CreateAutenticationResponse struct {
 	RawResponse *http.Response
 }
 
-func (o *CreateAutenticationResponse) GetContentType() string {
+func (o *CreateAuthenticationResponse) GetContentType() string {
 	if o == nil {
 		return ""
 	}
 	return o.ContentType
 }
 
-func (o *CreateAutenticationResponse) GetCreateAuthenticationResponse() *components.CreateAuthenticationResponse {
+func (o *CreateAuthenticationResponse) GetCreateAuthenticationResponse() *components.CreateAuthenticationResponse {
 	if o == nil {
 		return nil
 	}
 	return o.CreateAuthenticationResponse
 }
 
-func (o *CreateAutenticationResponse) GetStatusCode() int {
+func (o *CreateAuthenticationResponse) GetStatusCode() int {
 	if o == nil {
 		return 0
 	}
 	return o.StatusCode
 }
 
-func (o *CreateAutenticationResponse) GetRawResponse() *http.Response {
+func (o *CreateAuthenticationResponse) GetRawResponse() *http.Response {
 	if o == nil {
 		return nil
 	}

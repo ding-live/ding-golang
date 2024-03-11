@@ -61,6 +61,8 @@ type CreateAuthenticationRequest struct {
 	OsVersion *string `json:"os_version,omitempty"`
 	// An E.164 formatted phone number to send the OTP to.
 	PhoneNumber string `json:"phone_number"`
+	// The template id associated with the message content variant to be sent.
+	TemplateID *string `json:"template_id,omitempty"`
 }
 
 func (o *CreateAuthenticationRequest) GetAppRealm() *string {
@@ -138,4 +140,11 @@ func (o *CreateAuthenticationRequest) GetPhoneNumber() string {
 		return ""
 	}
 	return o.PhoneNumber
+}
+
+func (o *CreateAuthenticationRequest) GetTemplateID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TemplateID
 }

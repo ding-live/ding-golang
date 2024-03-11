@@ -21,6 +21,7 @@ import (
 //   - `invalid_os_version` - The provided OS version is invalid.
 //   - `invalid_device_model` - The provided device model is invalid.
 //   - `invalid_device_id` - The provided device ID is invalid.
+//   - `invalid_template_id` - The provided template ID is invalid.
 type Code string
 
 const (
@@ -40,6 +41,7 @@ const (
 	CodeInvalidOsVersion              Code = "invalid_os_version"
 	CodeInvalidDeviceModel            Code = "invalid_device_model"
 	CodeInvalidDeviceID               Code = "invalid_device_id"
+	CodeInvalidTemplateID             Code = "invalid_template_id"
 )
 
 func (e Code) ToPointer() *Code {
@@ -83,6 +85,8 @@ func (e *Code) UnmarshalJSON(data []byte) error {
 	case "invalid_device_model":
 		fallthrough
 	case "invalid_device_id":
+		fallthrough
+	case "invalid_template_id":
 		*e = Code(v)
 		return nil
 	default:
@@ -106,6 +110,7 @@ type ErrorResponse struct {
 	//   * `invalid_os_version` - The provided OS version is invalid.
 	//   * `invalid_device_model` - The provided device model is invalid.
 	//   * `invalid_device_id` - The provided device ID is invalid.
+	//   * `invalid_template_id` - The provided template ID is invalid.
 	//
 	Code *Code `json:"code,omitempty"`
 	// A link to the documentation that describes the error.

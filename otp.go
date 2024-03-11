@@ -134,11 +134,11 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest)
 	return res, nil
 }
 
-// CreateAutentication - Send a code
-func (s *Otp) CreateAutentication(ctx context.Context, request *components.CreateAuthenticationRequest) (*operations.CreateAutenticationResponse, error) {
+// CreateAuthentication - Send a code
+func (s *Otp) CreateAuthentication(ctx context.Context, request *components.CreateAuthenticationRequest) (*operations.CreateAuthenticationResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
-		OperationID:    "create-autentication",
+		OperationID:    "create-authentication",
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -192,7 +192,7 @@ func (s *Otp) CreateAutentication(ctx context.Context, request *components.Creat
 		}
 	}
 
-	res := &operations.CreateAutenticationResponse{
+	res := &operations.CreateAuthenticationResponse{
 		StatusCode:  httpRes.StatusCode,
 		ContentType: httpRes.Header.Get("Content-Type"),
 		RawResponse: httpRes,

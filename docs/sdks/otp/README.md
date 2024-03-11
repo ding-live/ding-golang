@@ -8,7 +8,7 @@ Send OTP codes to your users using their phone numbers.
 ### Available Operations
 
 * [Check](#check) - Check a code
-* [CreateAutentication](#createautentication) - Send a code
+* [CreateAuthentication](#createauthentication) - Send a code
 * [Retry](#retry) - Perform a retry
 
 ## Check
@@ -63,7 +63,7 @@ func main() {
 | sdkerrors.ErrorResponse | 400                     | application/json        |
 | sdkerrors.SDKError      | 4xx-5xx                 | */*                     |
 
-## CreateAutentication
+## CreateAuthentication
 
 Send a code
 
@@ -85,8 +85,8 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Otp.CreateAutentication(ctx, &components.CreateAuthenticationRequest{
-        CustomerUUID: "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+    res, err := s.Otp.CreateAuthentication(ctx, &components.CreateAuthenticationRequest{
+        CustomerUUID: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
         PhoneNumber: "+1234567890",
     })
     if err != nil {
@@ -108,7 +108,7 @@ func main() {
 
 ### Response
 
-**[*operations.CreateAutenticationResponse](../../models/operations/createautenticationresponse.md), error**
+**[*operations.CreateAuthenticationResponse](../../models/operations/createauthenticationresponse.md), error**
 | Error Object            | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
 | sdkerrors.ErrorResponse | 400                     | application/json        |

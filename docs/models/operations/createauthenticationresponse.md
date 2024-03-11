@@ -1,4 +1,4 @@
-# CreateAutenticationResponse
+# CreateAuthenticationResponse
 
 
 ## Fields
