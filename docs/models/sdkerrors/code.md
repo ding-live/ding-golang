@@ -14,6 +14,8 @@ A machine-readable code that describes the error. Possible values are:
   * `invalid_os_version` - The provided OS version is invalid.
   * `invalid_device_model` - The provided device model is invalid.
   * `invalid_device_id` - The provided device ID is invalid.
+  * `no_associated_auth_found` - The associated authentication was not found.
+  * `duplicated_feedback_status` - Duplicated feedback status has found.
   * `invalid_template_id` - The provided template ID is invalid.
 
 
@@ -38,4 +40,6 @@ A machine-readable code that describes the error. Possible values are:
 | `CodeInvalidOsVersion`              | invalid_os_version                  |
 | `CodeInvalidDeviceModel`            | invalid_device_model                |
 | `CodeInvalidDeviceID`               | invalid_device_id                   |
+| `CodeNoAssociatedAuthFound`         | no_associated_auth_found            |
+| `CodeDuplicatedFeedbackStatus`      | duplicated_feedback_status          |
 | `CodeInvalidTemplateID`             | invalid_template_id                 |

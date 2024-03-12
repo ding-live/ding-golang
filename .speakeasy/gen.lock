@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
-  docChecksum: a2a29dc8a8df536c8b2553db26987fad
+  docChecksum: bd5703227a0834ce8cffa01539ad4346
   docVersion: 1.0.0
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 0.6.1
-  configChecksum: 47b18cf30ef504e8deef24466586e9e7
+  speakeasyVersion: 1.206.3
+  generationVersion: 2.280.6
+  releaseVersion: 0.6.2
+  configChecksum: 7117cabf12fd3df122cad65c1350c8f4
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
@@ -17,7 +17,7 @@ features:
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.82.8
-    globalServerURLs: 2.82.1
+    globalServerURLs: 2.82.2
     responseFormat: 0.1.0
 generatedFiles:
   - otp.go
@@ -42,12 +42,15 @@ generatedFiles:
   - internal/utils/utils.go
   - /models/operations/check.go
   - /models/operations/createauthentication.go
+  - /models/operations/feedback.go
   - /models/operations/retry.go
   - /models/operations/lookup.go
   - /models/components/createcheckresponse.go
   - /models/components/createcheckrequest.go
   - /models/components/createauthenticationresponse.go
   - /models/components/createauthenticationrequest.go
+  - /models/components/feedbackresponse.go
+  - /models/components/feedbackrequest.go
   - /models/components/retryauthenticationresponse.go
   - /models/components/retryauthenticationrequest.go
   - /models/components/lookupresponse.go
@@ -55,6 +58,7 @@ generatedFiles:
   - /models/sdkerrors/errorresponse.go
   - docs/models/operations/checkresponse.md
   - docs/models/operations/createauthenticationresponse.md
+  - docs/models/operations/feedbackresponse.md
   - docs/models/operations/retryresponse.md
   - docs/models/operations/lookuprequest.md
   - docs/models/operations/lookupresponse.md
@@ -65,6 +69,9 @@ generatedFiles:
   - docs/models/components/createauthenticationresponse.md
   - docs/models/components/devicetype.md
   - docs/models/components/createauthenticationrequest.md
+  - docs/models/components/feedbackresponse.md
+  - docs/models/components/feedbackrequeststatus.md
+  - docs/models/components/feedbackrequest.md
   - docs/models/components/retryauthenticationresponsestatus.md
   - docs/models/components/retryauthenticationresponse.md
   - docs/models/components/retryauthenticationrequest.md

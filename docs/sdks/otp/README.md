@@ -9,6 +9,7 @@ Send OTP codes to your users using their phone numbers.
 
 * [Check](#check) - Check a code
 * [CreateAuthentication](#createauthentication) - Send a code
+* [Feedback](#feedback) - Send feedback
 * [Retry](#retry) - Perform a retry
 
 ## Check
@@ -113,6 +114,57 @@ func main() {
 | ----------------------- | ----------------------- | ----------------------- |
 | sdkerrors.ErrorResponse | 400                     | application/json        |
 | sdkerrors.SDKError      | 4xx-5xx                 | */*                     |
+
+## Feedback
+
+Send feedback
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"github.com/ding-live/ding-golang/models/components"
+	dinggolang "github.com/ding-live/ding-golang"
+	"context"
+	"log"
+)
+
+func main() {
+    s := dinggolang.New(
+        dinggolang.WithSecurity("YOUR_API_KEY"),
+    )
+
+    ctx := context.Background()
+    res, err := s.Otp.Feedback(ctx, &components.FeedbackRequest{
+        CustomerUUID: "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
+        PhoneNumber: "+1234567890",
+        Status: components.FeedbackRequestStatusOnboarded,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.FeedbackResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [components.FeedbackRequest](../../models/components/feedbackrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+
+
+### Response
+
+**[*operations.FeedbackResponse](../../models/operations/feedbackresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## Retry
 
