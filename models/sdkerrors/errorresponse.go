@@ -23,6 +23,7 @@ import (
 //   - `invalid_device_id` - The provided device ID is invalid.
 //   - `no_associated_auth_found` - The associated authentication was not found.
 //   - `duplicated_feedback_status` - Duplicated feedback status has found.
+//   - `invalid_feedback_status` - The provided feedback status is invalid.
 //   - `invalid_template_id` - The provided template ID is invalid.
 type Code string
 
@@ -45,6 +46,7 @@ const (
 	CodeInvalidDeviceID               Code = "invalid_device_id"
 	CodeNoAssociatedAuthFound         Code = "no_associated_auth_found"
 	CodeDuplicatedFeedbackStatus      Code = "duplicated_feedback_status"
+	CodeInvalidFeedbackStatus         Code = "invalid_feedback_status"
 	CodeInvalidTemplateID             Code = "invalid_template_id"
 )
 
@@ -94,6 +96,8 @@ func (e *Code) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "duplicated_feedback_status":
 		fallthrough
+	case "invalid_feedback_status":
+		fallthrough
 	case "invalid_template_id":
 		*e = Code(v)
 		return nil
@@ -120,6 +124,7 @@ type ErrorResponse struct {
 	//   * `invalid_device_id` - The provided device ID is invalid.
 	//   * `no_associated_auth_found` - The associated authentication was not found.
 	//   * `duplicated_feedback_status` - Duplicated feedback status has found.
+	//   * `invalid_feedback_status` - The provided feedback status is invalid.
 	//   * `invalid_template_id` - The provided template ID is invalid.
 	//
 	Code *Code `json:"code,omitempty"`
