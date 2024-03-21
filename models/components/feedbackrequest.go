@@ -11,7 +11,8 @@ import (
 type FeedbackRequestStatus string
 
 const (
-	FeedbackRequestStatusOnboarded FeedbackRequestStatus = "onboarded"
+	FeedbackRequestStatusOnboarded    FeedbackRequestStatus = "onboarded"
+	FeedbackRequestStatusNotOnboarded FeedbackRequestStatus = "not_onboarded"
 )
 
 func (e FeedbackRequestStatus) ToPointer() *FeedbackRequestStatus {
@@ -25,6 +26,8 @@ func (e *FeedbackRequestStatus) UnmarshalJSON(data []byte) error {
 	}
 	switch v {
 	case "onboarded":
+		fallthrough
+	case "not_onboarded":
 		*e = FeedbackRequestStatus(v)
 		return nil
 	default:
