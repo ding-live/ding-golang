@@ -25,6 +25,7 @@ import (
 //   - `duplicated_feedback_status` - Duplicated feedback status has found.
 //   - `invalid_feedback_status` - The provided feedback status is invalid.
 //   - `invalid_template_id` - The provided template ID is invalid.
+//   - `suspended_account` - Your account has been suspended.
 type Code string
 
 const (
@@ -48,6 +49,7 @@ const (
 	CodeDuplicatedFeedbackStatus      Code = "duplicated_feedback_status"
 	CodeInvalidFeedbackStatus         Code = "invalid_feedback_status"
 	CodeInvalidTemplateID             Code = "invalid_template_id"
+	CodeSuspendedAccount              Code = "suspended_account"
 )
 
 func (e Code) ToPointer() *Code {
@@ -99,6 +101,8 @@ func (e *Code) UnmarshalJSON(data []byte) error {
 	case "invalid_feedback_status":
 		fallthrough
 	case "invalid_template_id":
+		fallthrough
+	case "suspended_account":
 		*e = Code(v)
 		return nil
 	default:
@@ -126,6 +130,7 @@ type ErrorResponse struct {
 	//   * `duplicated_feedback_status` - Duplicated feedback status has found.
 	//   * `invalid_feedback_status` - The provided feedback status is invalid.
 	//   * `invalid_template_id` - The provided template ID is invalid.
+	//   * `suspended_account` - Your account has been suspended.
 	//
 	Code *Code `json:"code,omitempty"`
 	// A link to the documentation that describes the error.

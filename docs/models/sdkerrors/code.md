@@ -18,6 +18,7 @@ A machine-readable code that describes the error. Possible values are:
   * `duplicated_feedback_status` - Duplicated feedback status has found.
   * `invalid_feedback_status` - The provided feedback status is invalid.
   * `invalid_template_id` - The provided template ID is invalid.
+  * `suspended_account` - Your account has been suspended.
 
 
 
@@ -45,3 +46,4 @@ A machine-readable code that describes the error. Possible values are:
 | `CodeDuplicatedFeedbackStatus`      | duplicated_feedback_status          |
 | `CodeInvalidFeedbackStatus`         | invalid_feedback_status             |
 | `CodeInvalidTemplateID`             | invalid_template_id                 |
+| `CodeSuspendedAccount`              | suspended_account                   |
