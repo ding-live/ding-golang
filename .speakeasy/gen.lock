@@ -3,22 +3,27 @@ id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
   docChecksum: cc5222e7ad6b4dd1fdcb132656060fd6
   docVersion: 1.0.0
-  speakeasyVersion: 1.283.1
-  generationVersion: 2.324.0
-  releaseVersion: 0.8.0
-  configChecksum: 45b5a862d7d4cb0bd9c2176a76bf5497
+  speakeasyVersion: 1.285.1
+  generationVersion: 2.326.3
+  releaseVersion: 0.9.0
+  configChecksum: 2f9c693dab6ad5e88f828b7f8de9f60a
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
   published: true
 features:
   go:
+    additionalDependencies: 0.1.0
     core: 3.4.7
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.82.9
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.2
+    intellisenseMarkdownSupport: 0.1.0
     responseFormat: 0.1.1
+    sdkHooks: 0.1.0
 generatedFiles:
   - otp.go
   - lookup.go
