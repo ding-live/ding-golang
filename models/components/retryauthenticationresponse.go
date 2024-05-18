@@ -30,7 +30,6 @@ const (
 func (e RetryAuthenticationResponseStatus) ToPointer() *RetryAuthenticationResponseStatus {
 	return &e
 }
-
 func (e *RetryAuthenticationResponseStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {

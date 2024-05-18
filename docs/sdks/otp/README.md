@@ -22,8 +22,8 @@ Check a code
 package main
 
 import(
-	"github.com/ding-live/ding-golang/models/components"
 	dinggolang "github.com/ding-live/ding-golang"
+	"github.com/ding-live/ding-golang/models/components"
 	"context"
 	"log"
 )
@@ -76,8 +76,8 @@ Send a code
 package main
 
 import(
-	"github.com/ding-live/ding-golang/models/components"
 	dinggolang "github.com/ding-live/ding-golang"
+	"github.com/ding-live/ding-golang/models/components"
 	"context"
 	"log"
 )
@@ -129,8 +129,8 @@ Send feedback
 package main
 
 import(
-	"github.com/ding-live/ding-golang/models/components"
 	dinggolang "github.com/ding-live/ding-golang"
+	"github.com/ding-live/ding-golang/models/components"
 	"context"
 	"log"
 )
@@ -182,8 +182,8 @@ Perform a retry
 package main
 
 import(
-	"github.com/ding-live/ding-golang/models/components"
 	dinggolang "github.com/ding-live/ding-golang"
+	"github.com/ding-live/ding-golang/models/components"
 	"context"
 	"log"
 )

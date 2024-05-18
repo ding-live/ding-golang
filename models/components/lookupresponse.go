@@ -27,7 +27,6 @@ const (
 func (e LineType) ToPointer() *LineType {
 	return &e
 }
-
 func (e *LineType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
