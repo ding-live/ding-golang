@@ -111,17 +111,11 @@ func WithClient(client HTTPClient) SDKOption {
 	}
 }
 
-func withSecurity(security interface{}) func(context.Context) (interface{}, error) {
-	return func(context.Context) (interface{}, error) {
-		return security, nil
-	}
-}
-
 // WithSecurity configures the SDK to use the provided security details
 func WithSecurity(apiKey string) SDKOption {
 	return func(sdk *Ding) {
 		security := components.Security{APIKey: apiKey}
-		sdk.sdkConfiguration.Security = withSecurity(&security)
+		sdk.sdkConfiguration.Security = utils.AsSecuritySource(&security)
 	}
 }
 
@@ -146,9 +140,9 @@ func New(opts ...SDKOption) *Ding {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.9.3",
-			GenVersion:        "2.333.3",
-			UserAgent:         "speakeasy-sdk/go 0.9.3 2.333.3 1.0.0 github.com/ding-live/ding-golang",
+			SDKVersion:        "0.9.4",
+			GenVersion:        "2.335.5",
+			UserAgent:         "speakeasy-sdk/go 0.9.4 2.335.5 1.0.0 github.com/ding-live/ding-golang",
 			Hooks:             hooks.New(),
 		},
 	}

@@ -134,4 +134,5 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 	}
 
 	return res, nil
+
 }

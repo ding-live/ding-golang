@@ -134,6 +134,7 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest)
 	}
 
 	return res, nil
+
 }
 
 // CreateAuthentication - Send a code
@@ -243,6 +244,7 @@ func (s *Otp) CreateAuthentication(ctx context.Context, request *components.Crea
 	}
 
 	return res, nil
+
 }
 
 // Feedback - Send feedback
@@ -350,6 +352,7 @@ func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest)
 	}
 
 	return res, nil
+
 }
 
 // Retry - Perform a retry
@@ -459,4 +462,5 @@ func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthentication
 	}
 
 	return res, nil
+
 }
