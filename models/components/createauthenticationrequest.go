@@ -44,6 +44,8 @@ type CreateAuthenticationRequest struct {
 	AppVersion *string `json:"app_version,omitempty"`
 	// A webhook URL to which delivery statuses will be sent.
 	CallbackURL *string `json:"callback_url,omitempty"`
+	// A unique, user-defined identifier that will be included in webhook events
+	CorrelationID *string `json:"correlation_id,omitempty"`
 	// Your customer UUID, which can be found in the API settings in the dashboard.
 	CustomerUUID string `json:"customer_uuid"`
 	// Unique identifier for the user's device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
@@ -83,6 +85,13 @@ func (o *CreateAuthenticationRequest) GetCallbackURL() *string {
 		return nil
 	}
 	return o.CallbackURL
+}
+
+func (o *CreateAuthenticationRequest) GetCorrelationID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CorrelationID
 }
 
 func (o *CreateAuthenticationRequest) GetCustomerUUID() string {
