@@ -350,6 +350,100 @@ func main() {
 ```
 <!-- End Server Selection [server] -->
 
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a `retry.Config` object to the call by using the `WithRetries` option:
+```go
+package main
+
+import (
+	"context"
+	dinggolang "github.com/ding-live/ding-golang"
+	"github.com/ding-live/ding-golang/models/components"
+	"github.com/ding-live/ding-golang/retry"
+	"log"
+	"models/operations"
+)
+
+func main() {
+	s := dinggolang.New(
+		dinggolang.WithSecurity("YOUR_API_KEY"),
+	)
+	var request *components.CreateCheckRequest = &components.CreateCheckRequest{
+		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+		CheckCode:          "123456",
+		CustomerUUID:       "8f1196d5-806e-4b71-9b24-5f96ec052808",
+	}
+	ctx := context.Background()
+	res, err := s.Otp.Check(ctx, request, operations.WithRetries(
+		retry.Config{
+			Strategy: "backoff",
+			Backoff: &retry.BackoffStrategy{
+				InitialInterval: 1,
+				MaxInterval:     50,
+				Exponent:        1.1,
+				MaxElapsedTime:  100,
+			},
+			RetryConnectionErrors: false,
+		}))
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.CreateCheckResponse != nil {
+		// handle response
+	}
+}
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can use the `WithRetryConfig` option at SDK initialization:
+```go
+package main
+
+import (
+	"context"
+	dinggolang "github.com/ding-live/ding-golang"
+	"github.com/ding-live/ding-golang/models/components"
+	"github.com/ding-live/ding-golang/retry"
+	"log"
+)
+
+func main() {
+	s := dinggolang.New(
+		dinggolang.WithRetryConfig(
+			retry.Config{
+				Strategy: "backoff",
+				Backoff: &retry.BackoffStrategy{
+					InitialInterval: 1,
+					MaxInterval:     50,
+					Exponent:        1.1,
+					MaxElapsedTime:  100,
+				},
+				RetryConnectionErrors: false,
+			}),
+		dinggolang.WithSecurity("YOUR_API_KEY"),
+	)
+	var request *components.CreateCheckRequest = &components.CreateCheckRequest{
+		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+		CheckCode:          "123456",
+		CustomerUUID:       "8f1196d5-806e-4b71-9b24-5f96ec052808",
+	}
+	ctx := context.Background()
+	res, err := s.Otp.Check(ctx, request)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.CreateCheckResponse != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Retries [retries] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development

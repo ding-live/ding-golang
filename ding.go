@@ -8,6 +8,7 @@ import (
 	"github.com/ding-live/ding-golang/internal/hooks"
 	"github.com/ding-live/ding-golang/internal/utils"
 	"github.com/ding-live/ding-golang/models/components"
+	"github.com/ding-live/ding-golang/retry"
 	"net/http"
 	"time"
 )
@@ -51,8 +52,9 @@ type sdkConfiguration struct {
 	SDKVersion        string
 	GenVersion        string
 	UserAgent         string
-	RetryConfig       *utils.RetryConfig
+	RetryConfig       *retry.Config
 	Hooks             *hooks.Hooks
+	Timeout           *time.Duration
 }
 
 func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
@@ -128,9 +130,16 @@ func WithSecuritySource(security func(context.Context) (components.Security, err
 	}
 }
 
-func WithRetryConfig(retryConfig utils.RetryConfig) SDKOption {
+func WithRetryConfig(retryConfig retry.Config) SDKOption {
 	return func(sdk *Ding) {
 		sdk.sdkConfiguration.RetryConfig = &retryConfig
+	}
+}
+
+// WithTimeout Optional request timeout applied to each operation
+func WithTimeout(timeout time.Duration) SDKOption {
+	return func(sdk *Ding) {
+		sdk.sdkConfiguration.Timeout = &timeout
 	}
 }
 
@@ -140,9 +149,9 @@ func New(opts ...SDKOption) *Ding {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.9.9",
-			GenVersion:        "2.349.6",
-			UserAgent:         "speakeasy-sdk/go 0.9.9 2.349.6 1.0.0 github.com/ding-live/ding-golang",
+			SDKVersion:        "0.10.0",
+			GenVersion:        "2.365.0",
+			UserAgent:         "speakeasy-sdk/go 0.10.0 2.365.0 1.0.0 github.com/ding-live/ding-golang",
 			Hooks:             hooks.New(),
 		},
 	}
