@@ -189,12 +189,9 @@ func main() {
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
     )
-    var request *components.RetryAuthenticationRequest = &components.RetryAuthenticationRequest{
-        AuthenticationUUID: "a74ee547-564d-487a-91df-37fb25413a91",
-        CustomerUUID: "3c8b3a46-881e-4cdd-93a6-f7f238bf020a",
-    }
+
     ctx := context.Background()
-    res, err := s.Otp.Retry(ctx, request)
+    res, err := s.Otp.Retry(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
