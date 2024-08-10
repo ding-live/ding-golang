@@ -56,7 +56,7 @@ type CreateAuthenticationRequest struct {
 	DeviceType *DeviceType `json:"device_type,omitempty"`
 	// The IP address of the user's device.
 	IP *string `json:"ip,omitempty"`
-	// Whether the user is a returning user on your app.
+	// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
 	IsReturningUser *bool `json:"is_returning_user,omitempty"`
 	// The version of the user's device operating system.
 	OsVersion *string `json:"os_version,omitempty"`
