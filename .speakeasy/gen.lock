@@ -3,10 +3,10 @@ id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
   docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.360.0
-  generationVersion: 2.392.0
-  releaseVersion: 0.13.1
-  configChecksum: 518d93db3029c04ab951b334e9972ddd
+  speakeasyVersion: 1.368.0
+  generationVersion: 2.399.0
+  releaseVersion: 0.13.2
+  configChecksum: 4e6f3d1257e4f633d0369fccea4f074e
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
@@ -14,7 +14,7 @@ management:
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.5.3
+    core: 3.5.4
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.0
     examples: 2.81.3
