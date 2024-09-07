@@ -3,10 +3,10 @@ id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
   docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.382.0
-  generationVersion: 2.404.11
-  releaseVersion: 0.13.4
-  configChecksum: 20e2b8caa2eee85ddd3deb6619f2bf47
+  speakeasyVersion: 1.392.1
+  generationVersion: 2.411.9
+  releaseVersion: 0.13.5
+  configChecksum: 3a0cfab89abbd93b75f1878a0b442138
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
@@ -14,7 +14,7 @@ management:
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.5.5
+    core: 3.5.6
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.1
     examples: 2.81.3
@@ -28,17 +28,56 @@ features:
     retries: 2.83.0
     sdkHooks: 0.1.0
 generatedFiles:
-  - otp.go
-  - lookup.go
+  - .gitattributes
+  - /models/components/createauthenticationrequest.go
+  - /models/components/createauthenticationresponse.go
+  - /models/components/createcheckrequest.go
+  - /models/components/createcheckresponse.go
+  - /models/components/feedbackrequest.go
+  - /models/components/feedbackresponse.go
+  - /models/components/lookupresponse.go
+  - /models/components/retryauthenticationrequest.go
+  - /models/components/retryauthenticationresponse.go
+  - /models/components/security.go
+  - /models/operations/check.go
+  - /models/operations/createauthentication.go
+  - /models/operations/feedback.go
+  - /models/operations/lookup.go
+  - /models/operations/retry.go
+  - /models/sdkerrors/errorresponse.go
+  - CONTRIBUTING.md
+  - USAGE.md
   - ding.go
+  - docs/models/components/createauthenticationrequest.md
+  - docs/models/components/createauthenticationresponse.md
+  - docs/models/components/createcheckrequest.md
+  - docs/models/components/createcheckresponse.md
+  - docs/models/components/createcheckresponsestatus.md
+  - docs/models/components/devicetype.md
+  - docs/models/components/feedbackrequest.md
+  - docs/models/components/feedbackrequeststatus.md
+  - docs/models/components/feedbackresponse.md
+  - docs/models/components/linetype.md
+  - docs/models/components/lookupresponse.md
+  - docs/models/components/retryauthenticationrequest.md
+  - docs/models/components/retryauthenticationresponse.md
+  - docs/models/components/retryauthenticationresponsestatus.md
+  - docs/models/components/security.md
+  - docs/models/components/status.md
+  - docs/models/operations/checkresponse.md
+  - docs/models/operations/createauthenticationresponse.md
+  - docs/models/operations/feedbackresponse.md
+  - docs/models/operations/lookuprequest.md
+  - docs/models/operations/lookupresponse.md
+  - docs/models/operations/option.md
+  - docs/models/operations/retryresponse.md
+  - docs/models/sdkerrors/code.md
+  - docs/models/sdkerrors/errorresponse.md
+  - docs/sdks/ding/README.md
+  - docs/sdks/lookup/README.md
+  - docs/sdks/otp/README.md
   - go.mod
-  - models/sdkerrors/sdkerror.go
-  - retry/config.go
-  - types/bigint.go
-  - types/date.go
-  - types/datetime.go
-  - types/decimal.go
-  - types/pointers.go
+  - internal/hooks/hooks.go
   - internal/utils/contenttype.go
   - internal/utils/form.go
   - internal/utils/headers.go
@@ -49,52 +88,58 @@ generatedFiles:
   - internal/utils/retries.go
   - internal/utils/security.go
   - internal/utils/utils.go
-  - /models/operations/check.go
-  - /models/operations/createauthentication.go
-  - /models/operations/feedback.go
-  - /models/operations/retry.go
-  - /models/operations/lookup.go
-  - /models/components/createcheckresponse.go
-  - /models/components/createcheckrequest.go
-  - /models/components/createauthenticationresponse.go
-  - /models/components/createauthenticationrequest.go
-  - /models/components/feedbackresponse.go
-  - /models/components/feedbackrequest.go
-  - /models/components/retryauthenticationresponse.go
-  - /models/components/retryauthenticationrequest.go
-  - /models/components/lookupresponse.go
-  - /models/components/security.go
-  - /models/sdkerrors/errorresponse.go
-  - docs/models/operations/checkresponse.md
-  - docs/models/operations/createauthenticationresponse.md
-  - docs/models/operations/feedbackresponse.md
-  - docs/models/operations/retryresponse.md
-  - docs/models/operations/lookuprequest.md
-  - docs/models/operations/lookupresponse.md
-  - docs/models/components/createcheckresponsestatus.md
-  - docs/models/components/createcheckresponse.md
-  - docs/models/components/createcheckrequest.md
-  - docs/models/components/status.md
-  - docs/models/components/createauthenticationresponse.md
-  - docs/models/components/devicetype.md
-  - docs/models/components/createauthenticationrequest.md
-  - docs/models/components/feedbackresponse.md
-  - docs/models/components/feedbackrequeststatus.md
-  - docs/models/components/feedbackrequest.md
-  - docs/models/components/retryauthenticationresponsestatus.md
-  - docs/models/components/retryauthenticationresponse.md
-  - docs/models/components/retryauthenticationrequest.md
-  - docs/models/components/linetype.md
-  - docs/models/components/lookupresponse.md
-  - docs/models/components/security.md
-  - docs/models/sdkerrors/code.md
-  - docs/models/sdkerrors/errorresponse.md
-  - docs/sdks/ding/README.md
-  - docs/models/operations/option.md
-  - docs/sdks/otp/README.md
-  - docs/sdks/lookup/README.md
-  - USAGE.md
+  - lookup.go
   - models/operations/options.go
-  - .gitattributes
-  - internal/hooks/hooks.go
-  - CONTRIBUTING.md
+  - models/sdkerrors/sdkerror.go
+  - otp.go
+  - retry/config.go
+  - types/bigint.go
+  - types/date.go
+  - types/datetime.go
+  - types/decimal.go
+  - types/pointers.go
+examples:
+  check:
+    speakeasy-default-check:
+      requestBody:
+        application/json: {"authentication_uuid": "e0e7b0e9-739d-424b-922f-1c2cb48ab077", "check_code": "123456", "customer_uuid": "8f1196d5-806e-4b71-9b24-5f96ec052808"}
+      responses:
+        "200":
+          application/json: {"status": "valid"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  create-authentication:
+    speakeasy-default-create-authentication:
+      requestBody:
+        application/json: {"customer_uuid": "c9f826e0-deca-41ec-871f-ecd6e8efeb46", "phone_number": "+1234567890"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  feedback:
+    speakeasy-default-feedback:
+      requestBody:
+        application/json: {"customer_uuid": "c0c405fa-6bcb-4094-9430-7d6e2428ff23", "phone_number": "+1234567890", "status": "onboarded"}
+      responses:
+        "200":
+          application/json: {"uuid": "123e4567-e89b-12d3-a456-4266141740a0"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  retry:
+    speakeasy-default-retry:
+      responses:
+        "200":
+          application/json: {"remaining_retry": 3, "status": "approved"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  lookup:
+    speakeasy-default-lookup:
+      parameters:
+        path:
+          phone_number: "<value>"
+        header:
+          customer-uuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8"
+      responses:
+        "200":
+          application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}

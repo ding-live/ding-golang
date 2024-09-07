@@ -23,8 +23,8 @@ package main
 
 import(
 	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 	"context"
+	"github.com/ding-live/ding-golang/models/components"
 	"log"
 )
 
@@ -32,13 +32,13 @@ func main() {
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
     )
-    var request *components.CreateCheckRequest = &components.CreateCheckRequest{
+
+    ctx := context.Background()
+    res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
         AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
         CheckCode: "123456",
         CustomerUUID: "8f1196d5-806e-4b71-9b24-5f96ec052808",
-    }
-    ctx := context.Background()
-    res, err := s.Otp.Check(ctx, request)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -79,8 +79,8 @@ package main
 
 import(
 	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 	"context"
+	"github.com/ding-live/ding-golang/models/components"
 	"log"
 )
 
@@ -88,12 +88,12 @@ func main() {
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
     )
-    var request *components.CreateAuthenticationRequest = &components.CreateAuthenticationRequest{
+
+    ctx := context.Background()
+    res, err := s.Otp.CreateAuthentication(ctx, &components.CreateAuthenticationRequest{
         CustomerUUID: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
         PhoneNumber: "+1234567890",
-    }
-    ctx := context.Background()
-    res, err := s.Otp.CreateAuthentication(ctx, request)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -134,8 +134,8 @@ package main
 
 import(
 	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 	"context"
+	"github.com/ding-live/ding-golang/models/components"
 	"log"
 )
 
@@ -143,13 +143,13 @@ func main() {
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
     )
-    var request *components.FeedbackRequest = &components.FeedbackRequest{
+
+    ctx := context.Background()
+    res, err := s.Otp.Feedback(ctx, &components.FeedbackRequest{
         CustomerUUID: "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
         PhoneNumber: "+1234567890",
         Status: components.FeedbackRequestStatusOnboarded,
-    }
-    ctx := context.Background()
-    res, err := s.Otp.Feedback(ctx, request)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -189,7 +189,6 @@ package main
 
 import(
 	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
 	"context"
 	"log"
 )
