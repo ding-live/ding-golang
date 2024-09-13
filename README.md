@@ -140,6 +140,14 @@ func main() {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
+
+### [Lookup](docs/sdks/lookup/README.md)
+
+* [Lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+
 ### [Otp](docs/sdks/otp/README.md)
 
 * [Check](docs/sdks/otp/README.md#check) - Check a code
@@ -147,9 +155,7 @@ func main() {
 * [Feedback](docs/sdks/otp/README.md#feedback) - Send feedback
 * [Retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
-### [Lookup](docs/sdks/lookup/README.md)
-
-* [Lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
