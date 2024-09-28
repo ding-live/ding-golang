@@ -223,7 +223,7 @@ func main() {
 
 ### Errors
 
-| Error Object            | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| sdkerrors.ErrorResponse | 400                     | application/json        |
-| sdkerrors.SDKError      | 4xx-5xx                 | */*                     |
+| Error Object             | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| sdkerrors.ErrorResponse1 | 400                      | application/json         |
+| sdkerrors.SDKError       | 4xx-5xx                  | */*                      |

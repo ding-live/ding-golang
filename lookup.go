@@ -214,7 +214,7 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 				return nil, err
 			}
 
-			var out sdkerrors.ErrorResponse
+			var out sdkerrors.ErrorResponse1
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

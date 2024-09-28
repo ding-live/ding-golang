@@ -91,7 +91,6 @@ func (e *Code) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ErrorResponse - Bad Request
 type ErrorResponse struct {
 	// A machine-readable code that describes the error.
 	Code *Code `json:"code,omitempty"`
@@ -104,6 +103,22 @@ type ErrorResponse struct {
 var _ error = &ErrorResponse{}
 
 func (e *ErrorResponse) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
+type ErrorResponse1 struct {
+	// A machine-readable code that describes the error.
+	Code *Code `json:"code,omitempty"`
+	// A link to the documentation that describes the error.
+	DocURL *string `json:"doc_url,omitempty"`
+	// A human-readable message that describes the error.
+	Message *string `json:"message,omitempty"`
+}
+
+var _ error = &ErrorResponse1{}
+
+func (e *ErrorResponse1) Error() string {
 	data, _ := json.Marshal(e)
 	return string(data)
 }

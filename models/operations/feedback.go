@@ -4,7 +4,6 @@ package operations
 
 import (
 	"github.com/ding-live/ding-golang/models/components"
-	"github.com/ding-live/ding-golang/models/sdkerrors"
 	"net/http"
 )
 
@@ -12,7 +11,7 @@ type FeedbackResponse struct {
 	// HTTP response content type for this operation
 	ContentType string
 	// Bad Request
-	ErrorResponse *sdkerrors.ErrorResponse
+	ErrorResponse *components.ErrorResponse
 	// OK
 	FeedbackResponse *components.FeedbackResponse
 	// HTTP response status code for this operation
@@ -28,7 +27,7 @@ func (o *FeedbackResponse) GetContentType() string {
 	return o.ContentType
 }
 
-func (o *FeedbackResponse) GetErrorResponse() *sdkerrors.ErrorResponse {
+func (o *FeedbackResponse) GetErrorResponse() *components.ErrorResponse {
 	if o == nil {
 		return nil
 	}

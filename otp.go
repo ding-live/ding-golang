@@ -667,7 +667,7 @@ func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest,
 				return nil, err
 			}
 
-			var out sdkerrors.ErrorResponse
+			var out components.ErrorResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -873,7 +873,7 @@ func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthentication
 				return nil, err
 			}
 
-			var out sdkerrors.ErrorResponse
+			var out sdkerrors.ErrorResponse1
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
