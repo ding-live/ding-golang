@@ -10,6 +10,8 @@ import (
 type RetryResponse struct {
 	// HTTP response content type for this operation
 	ContentType string
+	// Bad Request
+	ErrorResponse *components.ErrorResponse
 	// OK
 	RetryAuthenticationResponse *components.RetryAuthenticationResponse
 	// HTTP response status code for this operation
@@ -23,6 +25,13 @@ func (o *RetryResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
+}
+
+func (o *RetryResponse) GetErrorResponse() *components.ErrorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorResponse
 }
 
 func (o *RetryResponse) GetRetryAuthenticationResponse() *components.RetryAuthenticationResponse {

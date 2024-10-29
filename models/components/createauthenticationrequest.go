@@ -58,10 +58,14 @@ type CreateAuthenticationRequest struct {
 	IP *string `json:"ip,omitempty"`
 	// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
 	IsReturningUser *bool `json:"is_returning_user,omitempty"`
+	// A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don't support the language set, the message will be sent in US English (en-US).
+	Locale *string `json:"locale,omitempty"`
 	// The version of the user's device operating system.
 	OsVersion *string `json:"os_version,omitempty"`
 	// An E.164 formatted phone number to send the OTP to.
 	PhoneNumber string `json:"phone_number"`
+	// The Sender ID to use when sending the message.
+	SenderID *string `json:"sender_id,omitempty"`
 	// The template id associated with the message content variant to be sent.
 	TemplateID *string `json:"template_id,omitempty"`
 }
@@ -136,6 +140,13 @@ func (o *CreateAuthenticationRequest) GetIsReturningUser() *bool {
 	return o.IsReturningUser
 }
 
+func (o *CreateAuthenticationRequest) GetLocale() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Locale
+}
+
 func (o *CreateAuthenticationRequest) GetOsVersion() *string {
 	if o == nil {
 		return nil
@@ -148,6 +159,13 @@ func (o *CreateAuthenticationRequest) GetPhoneNumber() string {
 		return ""
 	}
 	return o.PhoneNumber
+}
+
+func (o *CreateAuthenticationRequest) GetSenderID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SenderID
 }
 
 func (o *CreateAuthenticationRequest) GetTemplateID() *string {

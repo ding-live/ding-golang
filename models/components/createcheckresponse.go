@@ -2,68 +2,10 @@
 
 package components
 
-import (
-	"encoding/json"
-	"fmt"
-)
-
-// CreateCheckResponseStatus - The status of the check. Possible values are:
-//   - `valid` - The code is valid.
-//   - `invalid` - The code is invalid.
-//   - `without_attempt` - No attempt was sent yet, so a check cannot be completed.
-//   - `rate_limited` - The authentication was rate limited and cannot be checked.
-//   - `already_validated` - The authentication has already been validated.
-//   - `expired_auth` - The authentication has expired and cannot be checked.
-type CreateCheckResponseStatus string
-
-const (
-	CreateCheckResponseStatusValid            CreateCheckResponseStatus = "valid"
-	CreateCheckResponseStatusInvalid          CreateCheckResponseStatus = "invalid"
-	CreateCheckResponseStatusWithoutAttempt   CreateCheckResponseStatus = "without_attempt"
-	CreateCheckResponseStatusRateLimited      CreateCheckResponseStatus = "rate_limited"
-	CreateCheckResponseStatusAlreadyValidated CreateCheckResponseStatus = "already_validated"
-	CreateCheckResponseStatusExpiredAuth      CreateCheckResponseStatus = "expired_auth"
-)
-
-func (e CreateCheckResponseStatus) ToPointer() *CreateCheckResponseStatus {
-	return &e
-}
-func (e *CreateCheckResponseStatus) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "valid":
-		fallthrough
-	case "invalid":
-		fallthrough
-	case "without_attempt":
-		fallthrough
-	case "rate_limited":
-		fallthrough
-	case "already_validated":
-		fallthrough
-	case "expired_auth":
-		*e = CreateCheckResponseStatus(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for CreateCheckResponseStatus: %v", v)
-	}
-}
-
 type CreateCheckResponse struct {
 	// The UUID of the corresponding authentication.
-	AuthenticationUUID *string `json:"authentication_uuid,omitempty"`
-	// The status of the check. Possible values are:
-	//   * `valid` - The code is valid.
-	//   * `invalid` - The code is invalid.
-	//   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.
-	//   * `rate_limited` - The authentication was rate limited and cannot be checked.
-	//   * `already_validated` - The authentication has already been validated.
-	//   * `expired_auth` - The authentication has expired and cannot be checked.
-	//
-	Status *CreateCheckResponseStatus `json:"status,omitempty"`
+	AuthenticationUUID *string      `json:"authentication_uuid,omitempty"`
+	Status             *CheckStatus `json:"status,omitempty"`
 }
 
 func (o *CreateCheckResponse) GetAuthenticationUUID() *string {
@@ -73,7 +15,7 @@ func (o *CreateCheckResponse) GetAuthenticationUUID() *string {
 	return o.AuthenticationUUID
 }
 
-func (o *CreateCheckResponse) GetStatus() *CreateCheckResponseStatus {
+func (o *CreateCheckResponse) GetStatus() *CheckStatus {
 	if o == nil {
 		return nil
 	}

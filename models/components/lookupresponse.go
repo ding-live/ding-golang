@@ -8,20 +8,47 @@ import (
 )
 
 // LineType - The type of phone line.
+//   - `CallingCards` - Numbers that are associated with providers of pre-paid domestic and international calling cards.
+//   - `FixedLine` - Landline phone numbers.
+//   - `InternetServiceProvider` - Numbers reserved for ISPs.
+//   - `LocalRate` - Numbers that can be assigned non-geographically.
+//   - `Mobile` - Mobile phone numbers.
+//   - `Other` - Other types of services.
+//   - `Pager` - Number ranges specifically allocated to paging devices.
+//   - `PayPhone` - Allocated numbers for payphone kiosks in some countries.
+//   - `PremiumRate` - Landline numbers where the calling party pays more than standard.
+//   - `Satellite` - Satellite phone numbers.
+//   - `Service` - Automated applications.
+//   - `SharedCost` - Specific landline ranges where the cost of making the call is shared between the calling and called party.
+//   - `ShortCodesCommercial` - Short codes are memorable, easy-to-use numbers, like the UK's NHS 111, often sold to businesses. Not available in all countries.
+//   - `TollFree` - Number where the called party pays for the cost of the call not the calling party.
+//   - `UniversalAccess` - Number ranges reserved for Universal Access initiatives.
+//   - `Unknown` - Unknown phone number type.
+//   - `VPN` - Numbers are used exclusively within a private telecommunications network, connecting the operator's terminals internally and not accessible via the public telephone network.
+//   - `VoiceMail` - A specific category of Interactive Voice Response (IVR) services.
+//   - `Voip` - Specific ranges for providers of VoIP services to allow incoming calls from the regular telephony network.
 type LineType string
 
 const (
-	LineTypeFixedLine       LineType = "FixedLine"
-	LineTypeMobile          LineType = "Mobile"
-	LineTypeTollFree        LineType = "TollFree"
-	LineTypePremiumRate     LineType = "PremiumRate"
-	LineTypeSharedCost      LineType = "SharedCost"
-	LineTypeVoip            LineType = "Voip"
-	LineTypePager           LineType = "Pager"
-	LineTypeVoiceMail       LineType = "VoiceMail"
-	LineTypeUniversalAccess LineType = "UniversalAccess"
-	LineTypeService         LineType = "Service"
-	LineTypeUnknown         LineType = "Unknown"
+	LineTypeCallingCards            LineType = "CallingCards"
+	LineTypeFixedLine               LineType = "FixedLine"
+	LineTypeInternetServiceProvider LineType = "InternetServiceProvider"
+	LineTypeLocalRate               LineType = "LocalRate"
+	LineTypeMobile                  LineType = "Mobile"
+	LineTypeOther                   LineType = "Other"
+	LineTypePager                   LineType = "Pager"
+	LineTypePayPhone                LineType = "PayPhone"
+	LineTypePremiumRate             LineType = "PremiumRate"
+	LineTypeSatellite               LineType = "Satellite"
+	LineTypeService                 LineType = "Service"
+	LineTypeSharedCost              LineType = "SharedCost"
+	LineTypeShortCodesCommercial    LineType = "ShortCodesCommercial"
+	LineTypeTollFree                LineType = "TollFree"
+	LineTypeUniversalAccess         LineType = "UniversalAccess"
+	LineTypeUnknown                 LineType = "Unknown"
+	LineTypeVpn                     LineType = "VPN"
+	LineTypeVoiceMail               LineType = "VoiceMail"
+	LineTypeVoip                    LineType = "Voip"
 )
 
 func (e LineType) ToPointer() *LineType {
@@ -33,27 +60,43 @@ func (e *LineType) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
+	case "CallingCards":
+		fallthrough
 	case "FixedLine":
+		fallthrough
+	case "InternetServiceProvider":
+		fallthrough
+	case "LocalRate":
 		fallthrough
 	case "Mobile":
 		fallthrough
-	case "TollFree":
-		fallthrough
-	case "PremiumRate":
-		fallthrough
-	case "SharedCost":
-		fallthrough
-	case "Voip":
+	case "Other":
 		fallthrough
 	case "Pager":
 		fallthrough
-	case "VoiceMail":
+	case "PayPhone":
 		fallthrough
-	case "UniversalAccess":
+	case "PremiumRate":
+		fallthrough
+	case "Satellite":
 		fallthrough
 	case "Service":
 		fallthrough
+	case "SharedCost":
+		fallthrough
+	case "ShortCodesCommercial":
+		fallthrough
+	case "TollFree":
+		fallthrough
+	case "UniversalAccess":
+		fallthrough
 	case "Unknown":
+		fallthrough
+	case "VPN":
+		fallthrough
+	case "VoiceMail":
+		fallthrough
+	case "Voip":
 		*e = LineType(v)
 		return nil
 	default:
@@ -67,6 +110,26 @@ type LookupResponse struct {
 	// The ISO 3166-1 alpha-2 country code of the phone number.
 	CountryCode *string `json:"country_code,omitempty"`
 	// The type of phone line.
+	//   * `CallingCards` - Numbers that are associated with providers of pre-paid domestic and international calling cards.
+	//   * `FixedLine` - Landline phone numbers.
+	//   * `InternetServiceProvider` - Numbers reserved for ISPs.
+	//   * `LocalRate` - Numbers that can be assigned non-geographically.
+	//   * `Mobile` - Mobile phone numbers.
+	//   * `Other` - Other types of services.
+	//   * `Pager` - Number ranges specifically allocated to paging devices.
+	//   * `PayPhone` - Allocated numbers for payphone kiosks in some countries.
+	//   * `PremiumRate` - Landline numbers where the calling party pays more than standard.
+	//   * `Satellite` - Satellite phone numbers.
+	//   * `Service` - Automated applications.
+	//   * `SharedCost` - Specific landline ranges where the cost of making the call is shared between the calling and called party.
+	//   * `ShortCodesCommercial` - Short codes are memorable, easy-to-use numbers, like the UK's NHS 111, often sold to businesses. Not available in all countries.
+	//   * `TollFree` - Number where the called party pays for the cost of the call not the calling party.
+	//   * `UniversalAccess` - Number ranges reserved for Universal Access initiatives.
+	//   * `Unknown` - Unknown phone number type.
+	//   * `VPN` - Numbers are used exclusively within a private telecommunications network, connecting the operator's terminals internally and not accessible via the public telephone network.
+	//   * `VoiceMail` - A specific category of Interactive Voice Response (IVR) services.
+	//   * `Voip` - Specific ranges for providers of VoIP services to allow incoming calls from the regular telephony network.
+	//
 	LineType *LineType `json:"line_type,omitempty"`
 	// The mobile country code of the phone number.
 	Mcc *string `json:"mcc,omitempty"`

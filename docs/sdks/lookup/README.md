@@ -7,11 +7,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [Lookup](#lookup) - Perform a phone number lookup
+* [Lookup](#lookup) - Look up for phone number
 
 ## Lookup
 
-Perform a phone number lookup
+Look up for phone number
 
 ### Example Usage
 
@@ -55,7 +55,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| sdkerrors.ErrorResponse1 | 400                      | application/json         |
-| sdkerrors.SDKError       | 4XX, 5XX                 | \*/\*                    |
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |

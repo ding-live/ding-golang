@@ -29,6 +29,8 @@ func (o *LookupRequest) GetPhoneNumber() string {
 type LookupResponse struct {
 	// HTTP response content type for this operation
 	ContentType string
+	// Bad Request
+	ErrorResponse *components.ErrorResponse
 	// OK
 	LookupResponse *components.LookupResponse
 	// HTTP response status code for this operation
@@ -42,6 +44,13 @@ func (o *LookupResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
+}
+
+func (o *LookupResponse) GetErrorResponse() *components.ErrorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorResponse
 }
 
 func (o *LookupResponse) GetLookupResponse() *components.LookupResponse {

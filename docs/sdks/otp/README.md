@@ -10,6 +10,7 @@ Send OTP codes to your users using their phone numbers.
 * [Check](#check) - Check a code
 * [CreateAuthentication](#createauthentication) - Send a code
 * [Feedback](#feedback) - Send feedback
+* [GetAuthenticationStatus](#getauthenticationstatus) - Get authentication status
 * [Retry](#retry) - Perform a retry
 
 ## Check
@@ -62,10 +63,9 @@ func main() {
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| sdkerrors.ErrorResponse | 400                     | application/json        |
-| sdkerrors.SDKError      | 4XX, 5XX                | \*/\*                   |
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## CreateAuthentication
 
@@ -91,6 +91,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Otp.CreateAuthentication(ctx, &components.CreateAuthenticationRequest{
         CustomerUUID: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
+        Locale: dinggolang.String("fr-FR"),
         PhoneNumber: "+1234567890",
     })
     if err != nil {
@@ -116,10 +117,9 @@ func main() {
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| sdkerrors.ErrorResponse | 400                     | application/json        |
-| sdkerrors.SDKError      | 4XX, 5XX                | \*/\*                   |
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## Feedback
 
@@ -175,6 +175,55 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
+## GetAuthenticationStatus
+
+Get authentication status
+
+### Example Usage
+
+```go
+package main
+
+import(
+	dinggolang "github.com/ding-live/ding-golang"
+	"context"
+	"log"
+)
+
+func main() {
+    s := dinggolang.New(
+        dinggolang.WithSecurity("YOUR_API_KEY"),
+    )
+
+    ctx := context.Background()
+    res, err := s.Otp.GetAuthenticationStatus(ctx, "d8446450-f2fa-4dd9-806b-df5b8c661f23")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.AuthenticationStatusResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `authUUID`                                               | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetAuthenticationStatusResponse](../../models/operations/getauthenticationstatusresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
 ## Retry
 
 Perform a retry
@@ -220,7 +269,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| sdkerrors.ErrorResponse1 | 400                      | application/json         |
-| sdkerrors.SDKError       | 4XX, 5XX                 | \*/\*                    |
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |

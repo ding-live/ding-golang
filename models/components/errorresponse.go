@@ -3,19 +3,110 @@
 package components
 
 import (
-	"github.com/ding-live/ding-golang/models/sdkerrors"
+	"encoding/json"
+	"fmt"
 )
+
+// Code - A machine-readable code that describes the error.
+type Code string
+
+const (
+	CodeAccountInvalid                Code = "account_invalid"
+	CodeAppRealmRequireDeviceType     Code = "app_realm_require_device_type"
+	CodeBadRequest                    Code = "bad_request"
+	CodeBlockedNumber                 Code = "blocked_number"
+	CodeDuplicatedFeedbackStatus      Code = "duplicated_feedback_status"
+	CodeInternalServerError           Code = "internal_server_error"
+	CodeInvalidAppRealm               Code = "invalid_app_realm"
+	CodeInvalidAppVersion             Code = "invalid_app_version"
+	CodeInvalidAuthUUID               Code = "invalid_auth_uuid"
+	CodeInvalidDeviceID               Code = "invalid_device_id"
+	CodeInvalidDeviceModel            Code = "invalid_device_model"
+	CodeInvalidFeedbackStatus         Code = "invalid_feedback_status"
+	CodeInvalidLine                   Code = "invalid_line"
+	CodeInvalidOsVersion              Code = "invalid_os_version"
+	CodeInvalidPhoneNumber            Code = "invalid_phone_number"
+	CodeInvalidSenderID               Code = "invalid_sender_id"
+	CodeInvalidTemplateID             Code = "invalid_template_id"
+	CodeNegativeBalance               Code = "negative_balance"
+	CodeNoAssociatedAuthFound         Code = "no_associated_auth_found"
+	CodeSuspendedAccount              Code = "suspended_account"
+	CodeUnauthorizedSenderID          Code = "unauthorized_sender_id"
+	CodeUnsupportedAppRealmDeviceType Code = "unsupported_app_realm_device_type"
+	CodeUnsupportedRegion             Code = "unsupported_region"
+)
+
+func (e Code) ToPointer() *Code {
+	return &e
+}
+func (e *Code) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "account_invalid":
+		fallthrough
+	case "app_realm_require_device_type":
+		fallthrough
+	case "bad_request":
+		fallthrough
+	case "blocked_number":
+		fallthrough
+	case "duplicated_feedback_status":
+		fallthrough
+	case "internal_server_error":
+		fallthrough
+	case "invalid_app_realm":
+		fallthrough
+	case "invalid_app_version":
+		fallthrough
+	case "invalid_auth_uuid":
+		fallthrough
+	case "invalid_device_id":
+		fallthrough
+	case "invalid_device_model":
+		fallthrough
+	case "invalid_feedback_status":
+		fallthrough
+	case "invalid_line":
+		fallthrough
+	case "invalid_os_version":
+		fallthrough
+	case "invalid_phone_number":
+		fallthrough
+	case "invalid_sender_id":
+		fallthrough
+	case "invalid_template_id":
+		fallthrough
+	case "negative_balance":
+		fallthrough
+	case "no_associated_auth_found":
+		fallthrough
+	case "suspended_account":
+		fallthrough
+	case "unauthorized_sender_id":
+		fallthrough
+	case "unsupported_app_realm_device_type":
+		fallthrough
+	case "unsupported_region":
+		*e = Code(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for Code: %v", v)
+	}
+}
 
 type ErrorResponse struct {
 	// A machine-readable code that describes the error.
-	Code *sdkerrors.Code `json:"code,omitempty"`
+	Code *Code `json:"code,omitempty"`
 	// A link to the documentation that describes the error.
 	DocURL *string `json:"doc_url,omitempty"`
 	// A human-readable message that describes the error.
 	Message *string `json:"message,omitempty"`
 }
 
-func (o *ErrorResponse) GetCode() *sdkerrors.Code {
+func (o *ErrorResponse) GetCode() *Code {
 	if o == nil {
 		return nil
 	}
