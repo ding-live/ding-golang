@@ -212,6 +212,8 @@ type DeliveryStatus struct {
 	// The attempt number.
 	AttemptNumber *int64     `json:"attempt_number,omitempty"`
 	CreatedAt     *time.Time `json:"created_at,omitempty"`
+	// The date and time from the provider.
+	OriginatedAt *time.Time `json:"originated_at,omitempty"`
 	// The status of the delivery. Possible values are:
 	//   * `unknown` - The status of the delivery is unknown.
 	//   * `submitted` - The message has been submitted to the carrier.
@@ -254,6 +256,13 @@ func (o *DeliveryStatus) GetCreatedAt() *time.Time {
 		return nil
 	}
 	return o.CreatedAt
+}
+
+func (o *DeliveryStatus) GetOriginatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.OriginatedAt
 }
 
 func (o *DeliveryStatus) GetStatus() *AuthenticationStatusResponseStatus {

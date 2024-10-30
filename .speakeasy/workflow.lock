@@ -1,0 +1,28 @@
+speakeasyVersion: 1.423.3
+sources:
+    my-source:
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:fde58679f2e8dd7a5d0b083540884c07c514881371494f21143799c69573782c
+        sourceBlobDigest: sha256:408f69a3052eeaa99509ce0811301cbf4e12aab87613930f6d2fb41f94803bf5
+        tags:
+            - latest
+            - main
+targets:
+    github.com/ding-live/ding-golang:
+        source: my-source
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:fde58679f2e8dd7a5d0b083540884c07c514881371494f21143799c69573782c
+        sourceBlobDigest: sha256:408f69a3052eeaa99509ce0811301cbf4e12aab87613930f6d2fb41f94803bf5
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        my-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
+            registry:
+                location: registry.speakeasyapi.dev/ding/ding/my-source
+    targets:
+        github.com/ding-live/ding-golang:
+            target: go
+            source: my-source
