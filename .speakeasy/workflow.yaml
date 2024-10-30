@@ -1,0 +1,9 @@
+workflowVersion: 1.0.0
+sources:
+    my-source:
+        inputs:
+            - location: https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
+targets:
+    github.com/ding-live/ding-golang:
+        target: go
+        source: my-source
