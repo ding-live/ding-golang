@@ -10,3 +10,7 @@ targets:
     github.com/ding-live/ding-golang:
         target: go
         source: my-source
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+            blocking: false

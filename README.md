@@ -266,9 +266,10 @@ By Default, an API error will return `sdkerrors.SDKError`. When custom error res
 
 For example, the `Check` function may return the following errors:
 
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| sdkerrors.ErrorResponse | 400                     | application/json        |
+| sdkerrors.SDKError      | 4XX, 5XX                | \*/\*                   |
 
 ### Example
 
@@ -296,6 +297,12 @@ func main() {
 		CustomerUUID:       "8f1196d5-806e-4b71-9b24-5f96ec052808",
 	})
 	if err != nil {
+
+		var e *sdkerrors.ErrorResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 
 		var e *sdkerrors.SDKError
 		if errors.As(err, &e) {

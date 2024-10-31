@@ -12,8 +12,6 @@ type CheckResponse struct {
 	ContentType string
 	// OK
 	CreateCheckResponse *components.CreateCheckResponse
-	// Bad Request
-	ErrorResponse *components.ErrorResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
@@ -32,13 +30,6 @@ func (o *CheckResponse) GetCreateCheckResponse() *components.CreateCheckResponse
 		return nil
 	}
 	return o.CreateCheckResponse
-}
-
-func (o *CheckResponse) GetErrorResponse() *components.ErrorResponse {
-	if o == nil {
-		return nil
-	}
-	return o.ErrorResponse
 }
 
 func (o *CheckResponse) GetStatusCode() int {

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
-  docChecksum: 0e24d2251525fd6aa2e5edcae1b0c57f
+  docChecksum: cdd98ec37d038287e527cb85bbed139b
   docVersion: 1.0.0
-  speakeasyVersion: 1.423.3
-  generationVersion: 2.442.11
-  releaseVersion: 0.14.2
-  configChecksum: e15fa6dde1db3fec34410180d19ed018
+  speakeasyVersion: 1.423.5
+  generationVersion: 2.445.1
+  releaseVersion: 0.14.3
+  configChecksum: 3621fb84dd3249af0513d794eb746fb8
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
@@ -36,7 +36,6 @@ generatedFiles:
   - /models/components/createauthenticationresponse.go
   - /models/components/createcheckrequest.go
   - /models/components/createcheckresponse.go
-  - /models/components/errorresponse.go
   - /models/components/feedbackrequest.go
   - /models/components/feedbackresponse.go
   - /models/components/lookupresponse.go
@@ -49,6 +48,7 @@ generatedFiles:
   - /models/operations/getauthenticationstatus.go
   - /models/operations/lookup.go
   - /models/operations/retry.go
+  - /models/sdkerrors/errorresponse.go
   - CONTRIBUTING.md
   - USAGE.md
   - ding.go
@@ -65,14 +65,12 @@ generatedFiles:
   - docs/models/components/capability.md
   - docs/models/components/check.md
   - docs/models/components/checkstatus.md
-  - docs/models/components/code.md
   - docs/models/components/createauthenticationrequest.md
   - docs/models/components/createauthenticationresponse.md
   - docs/models/components/createcheckrequest.md
   - docs/models/components/createcheckresponse.md
   - docs/models/components/deliverystatus.md
   - docs/models/components/devicetype.md
-  - docs/models/components/errorresponse.md
   - docs/models/components/events.md
   - docs/models/components/feedbackrequest.md
   - docs/models/components/feedbackrequeststatus.md
@@ -95,6 +93,8 @@ generatedFiles:
   - docs/models/operations/lookupresponse.md
   - docs/models/operations/option.md
   - docs/models/operations/retryresponse.md
+  - docs/models/sdkerrors/code.md
+  - docs/models/sdkerrors/errorresponse.md
   - docs/sdks/ding/README.md
   - docs/sdks/lookup/README.md
   - docs/sdks/otp/README.md
@@ -151,6 +151,8 @@ examples:
           application/json: {"uuid": "123e4567-e89b-12d3-a456-4266141740a0"}
         default:
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   retry:
     speakeasy-default-retry:
       responses:
@@ -183,4 +185,6 @@ examples:
         "200":
           application/json: {"events": [], "phone_number": "+1234567890"}
         default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}

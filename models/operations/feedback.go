@@ -10,8 +10,6 @@ import (
 type FeedbackResponse struct {
 	// HTTP response content type for this operation
 	ContentType string
-	// Bad Request
-	ErrorResponse *components.ErrorResponse
 	// OK
 	FeedbackResponse *components.FeedbackResponse
 	// HTTP response status code for this operation
@@ -25,13 +23,6 @@ func (o *FeedbackResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *FeedbackResponse) GetErrorResponse() *components.ErrorResponse {
-	if o == nil {
-		return nil
-	}
-	return o.ErrorResponse
 }
 
 func (o *FeedbackResponse) GetFeedbackResponse() *components.FeedbackResponse {

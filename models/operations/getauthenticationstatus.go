@@ -23,8 +23,6 @@ type GetAuthenticationStatusResponse struct {
 	AuthenticationStatusResponse *components.AuthenticationStatusResponse
 	// HTTP response content type for this operation
 	ContentType string
-	// Bad Request
-	ErrorResponse *components.ErrorResponse
 	// HTTP response status code for this operation
 	StatusCode int
 	// Raw HTTP response; suitable for custom response parsing
@@ -43,13 +41,6 @@ func (o *GetAuthenticationStatusResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *GetAuthenticationStatusResponse) GetErrorResponse() *components.ErrorResponse {
-	if o == nil {
-		return nil
-	}
-	return o.ErrorResponse
 }
 
 func (o *GetAuthenticationStatusResponse) GetStatusCode() int {
