@@ -266,10 +266,10 @@ By Default, an API error will return `sdkerrors.SDKError`. When custom error res
 
 For example, the `Check` function may return the following errors:
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| sdkerrors.ErrorResponse | 400                     | application/json        |
-| sdkerrors.SDKError      | 4XX, 5XX                | \*/\*                   |
+| Error Type              | Status Code | Content Type     |
+| ----------------------- | ----------- | ---------------- |
+| sdkerrors.ErrorResponse | 400         | application/json |
+| sdkerrors.SDKError      | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -351,9 +351,9 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 This SDK supports the following security scheme globally:
 
-| Name     | Type     | Scheme   |
-| -------- | -------- | -------- |
-| `APIKey` | apiKey   | API key  |
+| Name     | Type   | Scheme  |
+| -------- | ------ | ------- |
+| `APIKey` | apiKey | API key |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go
@@ -391,52 +391,9 @@ func main() {
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.ding.live/v1` | None |
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	dinggolang "github.com/ding-live/ding-golang"
-	"github.com/ding-live/ding-golang/models/components"
-	"log"
-)
-
-func main() {
-	s := dinggolang.New(
-		dinggolang.WithServerIndex(0),
-		dinggolang.WithSecurity("YOUR_API_KEY"),
-	)
-
-	ctx := context.Background()
-	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
-		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
-		CheckCode:          "123456",
-		CustomerUUID:       "8f1196d5-806e-4b71-9b24-5f96ec052808",
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.CreateCheckResponse != nil {
-		// handle response
-	}
-}
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+The default server can also be overridden globally using the `WithServerURL(serverURL string)` option when initializing the SDK client instance. For example:
 ```go
 package main
 
