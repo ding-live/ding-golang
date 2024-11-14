@@ -139,6 +139,8 @@ type LookupResponse struct {
 	NumberPorted *bool `json:"number_ported,omitempty"`
 	// An E.164 formatted phone number.
 	PhoneNumber *string `json:"phone_number,omitempty"`
+	// Whether the phone number is in our database of disposable, temporary phone numbers
+	TemporaryPhoneNumber *bool `json:"temporary_phone_number,omitempty"`
 }
 
 func (o *LookupResponse) GetCarrier() *string {
@@ -188,4 +190,11 @@ func (o *LookupResponse) GetPhoneNumber() *string {
 		return nil
 	}
 	return o.PhoneNumber
+}
+
+func (o *LookupResponse) GetTemporaryPhoneNumber() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.TemporaryPhoneNumber
 }
