@@ -7,6 +7,8 @@ The type of device the user is using.
 
 | Name                                            | Value                                           |
 | ----------------------------------------------- | ----------------------------------------------- |
-| `AuthenticationStatusResponseDeviceTypeIos`     | IOS                                             |
 | `AuthenticationStatusResponseDeviceTypeAndroid` | ANDROID                                         |
+| `AuthenticationStatusResponseDeviceTypeIos`     | IOS                                             |
+| `AuthenticationStatusResponseDeviceTypeIpados`  | IPADOS                                          |
+| `AuthenticationStatusResponseDeviceTypeTvos`    | TVOS                                            |
 | `AuthenticationStatusResponseDeviceTypeWeb`     | WEB                                             |

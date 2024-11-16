@@ -678,8 +678,10 @@ func (u Events) MarshalJSON() ([]byte, error) {
 type AuthenticationStatusResponseDeviceType string
 
 const (
-	AuthenticationStatusResponseDeviceTypeIos     AuthenticationStatusResponseDeviceType = "IOS"
 	AuthenticationStatusResponseDeviceTypeAndroid AuthenticationStatusResponseDeviceType = "ANDROID"
+	AuthenticationStatusResponseDeviceTypeIos     AuthenticationStatusResponseDeviceType = "IOS"
+	AuthenticationStatusResponseDeviceTypeIpados  AuthenticationStatusResponseDeviceType = "IPADOS"
+	AuthenticationStatusResponseDeviceTypeTvos    AuthenticationStatusResponseDeviceType = "TVOS"
 	AuthenticationStatusResponseDeviceTypeWeb     AuthenticationStatusResponseDeviceType = "WEB"
 )
 
@@ -692,9 +694,13 @@ func (e *AuthenticationStatusResponseDeviceType) UnmarshalJSON(data []byte) erro
 		return err
 	}
 	switch v {
+	case "ANDROID":
+		fallthrough
 	case "IOS":
 		fallthrough
-	case "ANDROID":
+	case "IPADOS":
+		fallthrough
+	case "TVOS":
 		fallthrough
 	case "WEB":
 		*e = AuthenticationStatusResponseDeviceType(v)
