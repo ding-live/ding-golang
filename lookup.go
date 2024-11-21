@@ -6,12 +6,12 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/cenkalti/backoff/v4"
 	"github.com/ding-live/ding-golang/internal/hooks"
 	"github.com/ding-live/ding-golang/internal/utils"
 	"github.com/ding-live/ding-golang/models/components"
 	"github.com/ding-live/ding-golang/models/operations"
 	"github.com/ding-live/ding-golang/models/sdkerrors"
+	"github.com/ding-live/ding-golang/retry"
 	"net/http"
 )
 
@@ -111,7 +111,11 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 
 			req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 			if err != nil {
-				return nil, backoff.Permanent(err)
+				if retry.IsPermanentError(err) || retry.IsTemporaryError(err) {
+					return nil, err
+				}
+
+				return nil, retry.Permanent(err)
 			}
 
 			httpRes, err := s.sdkConfiguration.Client.Do(req)
