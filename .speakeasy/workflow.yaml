@@ -12,5 +12,5 @@ targets:
         source: my-source
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+                location: registry.speakeasyapi.dev/ding/ding/my-source-go-code-samples
             blocking: false
