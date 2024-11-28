@@ -152,9 +152,9 @@ func New(opts ...SDKOption) *Ding {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.14.30",
-			GenVersion:        "2.466.0",
-			UserAgent:         "speakeasy-sdk/go 0.14.30 2.466.0 1.0.0 github.com/ding-live/ding-golang",
+			SDKVersion:        "0.14.31",
+			GenVersion:        "2.467.4",
+			UserAgent:         "speakeasy-sdk/go 0.14.31 2.467.4 1.0.0 github.com/ding-live/ding-golang",
 			Hooks:             hooks.New(),
 		},
 	}
