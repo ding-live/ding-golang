@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.448.2
   generationVersion: 2.467.4
-  releaseVersion: 0.14.32
-  configChecksum: 4771792f6923487dc5e672ba01f2dc07
+  releaseVersion: 0.14.33
+  configChecksum: 67f6be66375523e0a3761ea45dddfd78
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
