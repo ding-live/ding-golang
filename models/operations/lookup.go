@@ -3,13 +3,39 @@
 package operations
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/ding-live/ding-golang/models/components"
 	"net/http"
 )
 
+type Type string
+
+const (
+	TypeCnam Type = "cnam"
+)
+
+func (e Type) ToPointer() *Type {
+	return &e
+}
+func (e *Type) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "cnam":
+		*e = Type(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for Type: %v", v)
+	}
+}
+
 type LookupRequest struct {
 	CustomerUUID string `header:"style=simple,explode=false,name=customer-uuid"`
 	PhoneNumber  string `pathParam:"style=simple,explode=false,name=phone_number"`
+	Type         []Type `queryParam:"style=form,explode=true,name=type"`
 }
 
 func (o *LookupRequest) GetCustomerUUID() string {
@@ -24,6 +50,13 @@ func (o *LookupRequest) GetPhoneNumber() string {
 		return ""
 	}
 	return o.PhoneNumber
+}
+
+func (o *LookupRequest) GetType() []Type {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 type LookupResponse struct {

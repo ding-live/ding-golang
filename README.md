@@ -228,7 +228,7 @@ func main() {
 	)
 
 	ctx := context.Background()
-	res, err := s.Lookup.Lookup(ctx, "6e93aa15-9177-4d09-8395-b69ce50db1c8", "<value>")
+	res, err := s.Lookup.Lookup(ctx, "6e93aa15-9177-4d09-8395-b69ce50db1c8", "<value>", nil)
 	if err != nil {
 		log.Fatal(err)
 	}

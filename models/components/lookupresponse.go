@@ -105,6 +105,8 @@ func (e *LineType) UnmarshalJSON(data []byte) error {
 }
 
 type LookupResponse struct {
+	// The CNAM (Caller ID Name) associated with the phone number. Contact us if you need to use this functionality. Once enabled, put `cnam` option to `type` query parameter.
+	CallerName *string `json:"caller_name,omitempty"`
 	// The carrier of the phone number.
 	Carrier *string `json:"carrier,omitempty"`
 	// The ISO 3166-1 alpha-2 country code of the phone number.
@@ -141,6 +143,13 @@ type LookupResponse struct {
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// Whether the phone number is in our database of disposable, temporary phone numbers
 	TemporaryPhoneNumber *bool `json:"temporary_phone_number,omitempty"`
+}
+
+func (o *LookupResponse) GetCallerName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CallerName
 }
 
 func (o *LookupResponse) GetCarrier() *string {

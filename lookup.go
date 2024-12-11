@@ -27,7 +27,7 @@ func newLookup(sdkConfig sdkConfiguration) *Lookup {
 }
 
 // Lookup - Look up for phone number
-func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber string, opts ...operations.Option) (*operations.LookupResponse, error) {
+func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber string, type_ []operations.Type, opts ...operations.Option) (*operations.LookupResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "lookup",
@@ -37,6 +37,7 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 	request := operations.LookupRequest{
 		CustomerUUID: customerUUID,
 		PhoneNumber:  phoneNumber,
+		Type:         type_,
 	}
 
 	o := operations.Options{}
@@ -76,6 +77,10 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
 	utils.PopulateHeaders(ctx, req, request, nil)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

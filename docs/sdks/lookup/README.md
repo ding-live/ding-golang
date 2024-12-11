@@ -30,7 +30,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Lookup.Lookup(ctx, "6e93aa15-9177-4d09-8395-b69ce50db1c8", "<value>")
+    res, err := s.Lookup.Lookup(ctx, "6e93aa15-9177-4d09-8395-b69ce50db1c8", "<value>", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -47,6 +47,7 @@ func main() {
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
 | `customerUUID`                                           | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
 | `phoneNumber`                                            | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `type_`                                                  | [][operations.Type](../../models/operations/type.md)     | :heavy_minus_sign:                                       | N/A                                                      |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
