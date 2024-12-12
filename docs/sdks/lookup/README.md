@@ -19,17 +19,18 @@ Look up for phone number
 package main
 
 import(
-	dinggolang "github.com/ding-live/ding-golang"
 	"context"
+	dinggolang "github.com/ding-live/ding-golang"
 	"log"
 )
 
 func main() {
+    ctx := context.Background()
+    
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
     )
 
-    ctx := context.Background()
     res, err := s.Lookup.Lookup(ctx, "6e93aa15-9177-4d09-8395-b69ce50db1c8", "<value>", nil)
     if err != nil {
         log.Fatal(err)

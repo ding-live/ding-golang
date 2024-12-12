@@ -54,11 +54,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.CreateAuthentication(ctx, &components.CreateAuthenticationRequest{
 		CustomerUUID: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
 		Locale:       dinggolang.String("fr-FR"),
@@ -90,11 +91,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
 		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
 		CheckCode:          "123456",
@@ -125,11 +127,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Retry(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -157,11 +160,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Feedback(ctx, &components.FeedbackRequest{
 		CustomerUUID: "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
 		PhoneNumber:  "+1234567890",
@@ -192,11 +196,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.GetAuthenticationStatus(ctx, "d8446450-f2fa-4dd9-806b-df5b8c661f23")
 	if err != nil {
 		log.Fatal(err)
@@ -223,11 +228,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Lookup.Lookup(ctx, "6e93aa15-9177-4d09-8395-b69ce50db1c8", "<value>", nil)
 	if err != nil {
 		log.Fatal(err)
@@ -291,11 +297,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
 		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
 		CheckCode:          "123456",
@@ -372,11 +379,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
 		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
 		CheckCode:          "123456",
@@ -410,12 +418,13 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithServerURL("https://api.ding.live/v1"),
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
 		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
 		CheckCode:          "123456",
@@ -451,11 +460,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
 		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
 		CheckCode:          "123456",
@@ -494,6 +504,8 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := dinggolang.New(
 		dinggolang.WithRetryConfig(
 			retry.Config{
@@ -509,7 +521,6 @@ func main() {
 		dinggolang.WithSecurity("YOUR_API_KEY"),
 	)
 
-	ctx := context.Background()
 	res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
 		AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
 		CheckCode:          "123456",
