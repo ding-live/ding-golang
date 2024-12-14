@@ -577,10 +577,10 @@ const (
 )
 
 type Events struct {
-	Attempt        *Attempt
-	Check          *Check
-	DeliveryStatus *DeliveryStatus
-	BalanceUpdate  *BalanceUpdate
+	Attempt        *Attempt        `queryParam:"inline"`
+	Check          *Check          `queryParam:"inline"`
+	DeliveryStatus *DeliveryStatus `queryParam:"inline"`
+	BalanceUpdate  *BalanceUpdate  `queryParam:"inline"`
 
 	Type EventsType
 }
