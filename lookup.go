@@ -52,7 +52,12 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 		}
 	}
 
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/lookup/{phone_number}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)

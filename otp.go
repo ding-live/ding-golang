@@ -47,7 +47,12 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest,
 		}
 	}
 
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
 	opURL, err := url.JoinPath(baseURL, "/check")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
@@ -263,7 +268,12 @@ func (s *Otp) CreateAuthentication(ctx context.Context, request *components.Crea
 		}
 	}
 
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
 	opURL, err := url.JoinPath(baseURL, "/authentication")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
@@ -479,7 +489,12 @@ func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest,
 		}
 	}
 
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
 	opURL, err := url.JoinPath(baseURL, "/authentication/feedback")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
@@ -699,7 +714,12 @@ func (s *Otp) GetAuthenticationStatus(ctx context.Context, authUUID string, opts
 		}
 	}
 
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/authentication/{auth_uuid}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
@@ -909,7 +929,12 @@ func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthentication
 		}
 	}
 
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
 	opURL, err := url.JoinPath(baseURL, "/retry")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
