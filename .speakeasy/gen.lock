@@ -3,10 +3,10 @@ id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.468.1
-  generationVersion: 2.492.3
-  releaseVersion: 0.15.28
-  configChecksum: f2115afc3b68d327d6d3b92ffe71f76e
+  speakeasyVersion: 1.468.2
+  generationVersion: 2.493.4
+  releaseVersion: 0.15.29
+  configChecksum: e4291d3c0c4b80e90d94bc9bde52cb17
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
@@ -49,7 +49,6 @@ generatedFiles:
   - /models/operations/lookup.go
   - /models/operations/retry.go
   - /models/sdkerrors/errorresponse.go
-  - CONTRIBUTING.md
   - USAGE.md
   - ding.go
   - docs/models/components/attempt.md
