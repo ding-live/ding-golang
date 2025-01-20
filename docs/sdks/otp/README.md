@@ -37,9 +37,9 @@ func main() {
     )
 
     res, err := s.Otp.Check(ctx, &components.CreateCheckRequest{
-        AuthenticationUUID: "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+        AuthenticationUUID: "eebe792b-2fcc-44a0-87f1-650e79259e02",
         CheckCode: "123456",
-        CustomerUUID: "8f1196d5-806e-4b71-9b24-5f96ec052808",
+        CustomerUUID: "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
     })
     if err != nil {
         log.Fatal(err)
@@ -93,7 +93,7 @@ func main() {
     )
 
     res, err := s.Otp.CreateAuthentication(ctx, &components.CreateAuthenticationRequest{
-        CustomerUUID: "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
+        CustomerUUID: "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
         Locale: dinggolang.String("fr-FR"),
         PhoneNumber: "+1234567890",
     })
@@ -149,7 +149,7 @@ func main() {
     )
 
     res, err := s.Otp.Feedback(ctx, &components.FeedbackRequest{
-        CustomerUUID: "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
+        CustomerUUID: "cc0f6c04-40de-448f-8301-3cb0e6565dff",
         PhoneNumber: "+1234567890",
         Status: components.FeedbackRequestStatusOnboarded,
     })
