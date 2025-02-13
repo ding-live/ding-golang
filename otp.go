@@ -29,12 +29,6 @@ func newOtp(sdkConfig sdkConfiguration) *Otp {
 
 // Check a code
 func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest, opts ...operations.Option) (*operations.CheckResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "check",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -58,6 +52,12 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest,
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "check",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -256,12 +256,6 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest,
 
 // CreateAuthentication - Send a code
 func (s *Otp) CreateAuthentication(ctx context.Context, request *components.CreateAuthenticationRequest, opts ...operations.Option) (*operations.CreateAuthenticationResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "create-authentication",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -285,6 +279,12 @@ func (s *Otp) CreateAuthentication(ctx context.Context, request *components.Crea
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "create-authentication",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -483,12 +483,6 @@ func (s *Otp) CreateAuthentication(ctx context.Context, request *components.Crea
 
 // Feedback - Send feedback
 func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest, opts ...operations.Option) (*operations.FeedbackResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "feedback",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -512,6 +506,12 @@ func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest,
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "feedback",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
@@ -710,12 +710,6 @@ func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest,
 
 // GetAuthenticationStatus - Get authentication status
 func (s *Otp) GetAuthenticationStatus(ctx context.Context, authUUID string, opts ...operations.Option) (*operations.GetAuthenticationStatusResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "getAuthenticationStatus",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.GetAuthenticationStatusRequest{
 		AuthUUID: authUUID,
 	}
@@ -741,6 +735,13 @@ func (s *Otp) GetAuthenticationStatus(ctx context.Context, authUUID string, opts
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/authentication/{auth_uuid}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "getAuthenticationStatus",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -933,12 +934,6 @@ func (s *Otp) GetAuthenticationStatus(ctx context.Context, authUUID string, opts
 
 // Retry - Perform a retry
 func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthenticationRequest, opts ...operations.Option) (*operations.RetryResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "retry",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -962,6 +957,12 @@ func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthentication
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "retry",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "Request", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err

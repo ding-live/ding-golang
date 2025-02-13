@@ -28,12 +28,6 @@ func newLookup(sdkConfig sdkConfiguration) *Lookup {
 
 // Lookup - Look up for phone number
 func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber string, type_ []operations.Type, opts ...operations.Option) (*operations.LookupResponse, error) {
-	hookCtx := hooks.HookContext{
-		Context:        ctx,
-		OperationID:    "lookup",
-		SecuritySource: s.sdkConfiguration.Security,
-	}
-
 	request := operations.LookupRequest{
 		CustomerUUID: customerUUID,
 		PhoneNumber:  phoneNumber,
@@ -61,6 +55,13 @@ func (s *Lookup) Lookup(ctx context.Context, customerUUID string, phoneNumber st
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/lookup/{phone_number}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		BaseURL:        baseURL,
+		Context:        ctx,
+		OperationID:    "lookup",
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
