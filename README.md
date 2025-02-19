@@ -406,7 +406,7 @@ func main() {
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally using the `WithServerURL(serverURL string)` option when initializing the SDK client instance. For example:
+The default server can be overridden globally using the `WithServerURL(serverURL string)` option when initializing the SDK client instance. For example:
 ```go
 package main
 
