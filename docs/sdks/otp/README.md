@@ -30,8 +30,7 @@ import(
 )
 
 func main() {
-ctx := context.Background()
-
+    ctx := context.Background()
 
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
@@ -87,8 +86,7 @@ import(
 )
 
 func main() {
-ctx := context.Background()
-
+    ctx := context.Background()
 
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
@@ -144,8 +142,7 @@ import(
 )
 
 func main() {
-ctx := context.Background()
-
+    ctx := context.Background()
 
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
@@ -200,8 +197,7 @@ import(
 )
 
 func main() {
-ctx := context.Background()
-
+    ctx := context.Background()
 
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
@@ -252,8 +248,7 @@ import(
 )
 
 func main() {
-ctx := context.Background()
-
+    ctx := context.Background()
 
     s := dinggolang.New(
         dinggolang.WithSecurity("YOUR_API_KEY"),
