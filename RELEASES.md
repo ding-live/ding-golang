@@ -1949,3 +1949,13 @@ Based on:
 - [go v0.16.21] .
 ### Releases
 - [Go v0.16.21] https://github.com/ding-live/ding-golang/releases/tag/v0.16.21 - .
+
+## 2025-03-06 00:21:12
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.510.0 (2.541.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.16.22] .
+### Releases
+- [Go v0.16.22] https://github.com/ding-live/ding-golang/releases/tag/v0.16.22 - .
