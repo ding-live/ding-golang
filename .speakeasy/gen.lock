@@ -3,10 +3,10 @@ id: 875b45a6-19b9-4d23-8648-a219e85b0fc9
 management:
   docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.510.0
-  generationVersion: 2.541.0
-  releaseVersion: 0.16.22
-  configChecksum: 64ca51d702694a0b11170f0e6d01bf61
+  speakeasyVersion: 1.513.2
+  generationVersion: 2.545.2
+  releaseVersion: 0.16.23
+  configChecksum: 20908303bc8831d5fbc960cda442d833
   repoURL: https://github.com/ding-live/ding-golang.git
   repoSubDirectory: .
   installationURL: https://github.com/ding-live/ding-golang
