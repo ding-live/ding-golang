@@ -1,21 +1,21 @@
-speakeasyVersion: 1.527.1
+speakeasyVersion: 1.528.1
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:f7341047054f228ff37c50f74be425a49cc906c170a7d9cfb20c234f0b8450b1
+        sourceRevisionDigest: sha256:1d81273af6521778bc36bd6b76dc71f75f5a54335f022afe4e40f75094e71605
         sourceBlobDigest: sha256:f7272f9ebff9082fa0c9f834d73f91cdc05a4fee0f66f43e24cf6ac124a12198
         tags:
             - latest
-            - speakeasy-sdk-regen-1743553348
+            - speakeasy-sdk-regen-1743639707
             - 1.0.0
 targets:
     github.com/ding-live/ding-golang:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:f7341047054f228ff37c50f74be425a49cc906c170a7d9cfb20c234f0b8450b1
+        sourceRevisionDigest: sha256:1d81273af6521778bc36bd6b76dc71f75f5a54335f022afe4e40f75094e71605
         sourceBlobDigest: sha256:f7272f9ebff9082fa0c9f834d73f91cdc05a4fee0f66f43e24cf6ac124a12198
         codeSamplesNamespace: my-source-go-code-samples
-        codeSamplesRevisionDigest: sha256:3b042ed8447b156cd7653994fadc853def7d444688a3787af5ab524cd2bbdd4d
+        codeSamplesRevisionDigest: sha256:f53014f153efd7fff13590651dd42c3b4c992605251ef64a49b88ff8df98ea78
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
