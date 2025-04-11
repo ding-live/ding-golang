@@ -15,7 +15,7 @@ Send OTP codes to your users using their phone numbers.
 
 ## Check
 
-Check a code
+Check that a code entered by a user is valid.
 
 ### Example Usage
 
@@ -71,7 +71,7 @@ func main() {
 
 ## CreateAuthentication
 
-Send a code
+Send an OTP code to a user's phone number.
 
 ### Example Usage
 
@@ -127,7 +127,7 @@ func main() {
 
 ## Feedback
 
-Send feedback
+Send feedback about the authentication process.
 
 ### Example Usage
 
@@ -183,7 +183,7 @@ func main() {
 
 ## GetAuthenticationStatus
 
-Get authentication status
+Get the status of an authentication.
 
 ### Example Usage
 
@@ -234,7 +234,7 @@ func main() {
 
 ## Retry
 
-Perform a retry
+Perform a retry if a user has not received the code.
 
 ### Example Usage
 

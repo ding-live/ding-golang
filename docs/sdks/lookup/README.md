@@ -11,7 +11,7 @@ Retrieve up-to-date metadata about a specific phone number
 
 ## Lookup
 
-Look up for phone number
+Perform a phone number lookup.
 
 ### Example Usage
 

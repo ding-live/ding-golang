@@ -28,6 +28,7 @@ func newOtp(sdkConfig sdkConfiguration) *Otp {
 }
 
 // Check a code
+// Check that a code entered by a user is valid.
 func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest, opts ...operations.Option) (*operations.CheckResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -255,6 +256,7 @@ func (s *Otp) Check(ctx context.Context, request *components.CreateCheckRequest,
 }
 
 // CreateAuthentication - Send a code
+// Send an OTP code to a user's phone number.
 func (s *Otp) CreateAuthentication(ctx context.Context, request *components.CreateAuthenticationRequest, opts ...operations.Option) (*operations.CreateAuthenticationResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -482,6 +484,7 @@ func (s *Otp) CreateAuthentication(ctx context.Context, request *components.Crea
 }
 
 // Feedback - Send feedback
+// Send feedback about the authentication process.
 func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest, opts ...operations.Option) (*operations.FeedbackResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -709,6 +712,7 @@ func (s *Otp) Feedback(ctx context.Context, request *components.FeedbackRequest,
 }
 
 // GetAuthenticationStatus - Get authentication status
+// Get the status of an authentication.
 func (s *Otp) GetAuthenticationStatus(ctx context.Context, authUUID string, opts ...operations.Option) (*operations.GetAuthenticationStatusResponse, error) {
 	request := operations.GetAuthenticationStatusRequest{
 		AuthUUID: authUUID,
@@ -933,6 +937,7 @@ func (s *Otp) GetAuthenticationStatus(ctx context.Context, authUUID string, opts
 }
 
 // Retry - Perform a retry
+// Perform a retry if a user has not received the code.
 func (s *Otp) Retry(ctx context.Context, request *components.RetryAuthenticationRequest, opts ...operations.Option) (*operations.RetryResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

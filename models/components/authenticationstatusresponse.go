@@ -710,7 +710,7 @@ func (e *AuthenticationStatusResponseDeviceType) UnmarshalJSON(data []byte) erro
 	}
 }
 
-// Signals - [Signals](/guides/prevent-fraud#signals) are data points used to distinguish between fraudulent and legitimate users.
+// Signals are data points used to distinguish between fraudulent and legitimate users.
 type Signals struct {
 	// The Android SMS Retriever API hash code that identifies your app. This allows you to automatically retrieve and fill the OTP code on Android devices.
 	AppRealm *string `json:"app_realm,omitempty"`
@@ -724,7 +724,7 @@ type Signals struct {
 	DeviceType *AuthenticationStatusResponseDeviceType `json:"device_type,omitempty"`
 	// The IP address of the user's device.
 	IP *string `json:"ip,omitempty"`
-	// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
+	// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/verify/v2/documentation/prevent-fraud#signals).
 	IsReturningUser *bool `json:"is_returning_user,omitempty"`
 	// The version of the user's device operating system.
 	OsVersion *string `json:"os_version,omitempty"`
@@ -794,7 +794,7 @@ type AuthenticationStatusResponse struct {
 	Events []Events `json:"events,omitempty"`
 	// An E.164 formatted phone number.
 	PhoneNumber *string `json:"phone_number,omitempty"`
-	// [Signals](/guides/prevent-fraud#signals) are data points used to distinguish between fraudulent and legitimate users.
+	// Signals are data points used to distinguish between fraudulent and legitimate users.
 	Signals *Signals `json:"signals,omitempty"`
 	// The template id associated with the message content variant to be sent.
 	TemplateID *string `json:"template_id,omitempty"`

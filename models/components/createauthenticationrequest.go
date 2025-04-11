@@ -56,7 +56,7 @@ type CreateAuthenticationRequest struct {
 	DeviceType *DeviceType `json:"device_type,omitempty"`
 	// The IP address of the user's device.
 	IP *string `json:"ip,omitempty"`
-	// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to [Signals](/guides/prevent-fraud#signals).
+	// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine.
 	IsReturningUser *bool `json:"is_returning_user,omitempty"`
 	// A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don't support the language set, the message will be sent in US English (en-US).
 	Locale *string `json:"locale,omitempty"`
