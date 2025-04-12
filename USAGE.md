@@ -3,7 +3,6 @@
 
 Send an OTP code to a user's phone number.
 
-
 ```go
 package main
 
@@ -40,7 +39,6 @@ func main() {
 
 Check that a code entered by a user is valid.
 
-
 ```go
 package main
 
@@ -76,7 +74,6 @@ func main() {
 ### Perform a retry
 
 Perform a retry if a user has not received the code.
-
 
 ```go
 package main
@@ -146,7 +143,6 @@ func main() {
 
 Get the status of an authentication.
 
-
 ```go
 package main
 
@@ -177,7 +173,6 @@ func main() {
 ### Look up for phone number
 
 Perform a phone number lookup.
-
 
 ```go
 package main
