@@ -12,7 +12,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 go:
-  version: 0.16.71
+  version: 0.16.72
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   clientServerStatusCodesAsErrors: true
